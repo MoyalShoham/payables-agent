@@ -62,7 +62,9 @@ class RecordingStore:
 
     def save(self, key: str, raw: RawExtraction) -> None:
         self.directory.mkdir(parents=True, exist_ok=True)
-        self.path(key).write_text(json.dumps(asdict(raw), ensure_ascii=False, indent=1), encoding="utf-8")
+        self.path(key).write_text(
+            json.dumps(asdict(raw), ensure_ascii=False, indent=1), encoding="utf-8", newline="\n"
+        )
 
 
 class RecordingExtractor:

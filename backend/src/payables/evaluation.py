@@ -90,7 +90,9 @@ def build(split: str) -> list[Entry]:
         for e in entries
     ]
     EVAL_DIR.mkdir(parents=True, exist_ok=True)
-    manifest_path(split).write_text(json.dumps(rows, ensure_ascii=False, indent=1), encoding="utf-8")
+    manifest_path(split).write_text(
+        json.dumps(rows, ensure_ascii=False, indent=1), encoding="utf-8", newline="\n"
+    )
     return entries
 
 
@@ -404,9 +406,9 @@ def main(argv: list[str] | None = None) -> None:
         print(text)
         if args.out:
             (args.out / "results-bank-phrasings.json").write_text(
-                json.dumps(r, indent=1, ensure_ascii=False), encoding="utf-8"
+                json.dumps(r, indent=1, ensure_ascii=False), encoding="utf-8", newline="\n"
             )
-            (args.out / "results-bank-phrasings.md").write_text(text, encoding="utf-8")
+            (args.out / "results-bank-phrasings.md").write_text(text, encoding="utf-8", newline="\n")
     else:
         result = report(args.split, evaluate(args.split, args.oracle), args.oracle)
         text = markdown(result)
@@ -415,9 +417,9 @@ def main(argv: list[str] | None = None) -> None:
             args.out.mkdir(parents=True, exist_ok=True)
             name = f"results-{args.split}{'-oracle' if args.oracle else ''}"
             (args.out / f"{name}.json").write_text(
-                json.dumps(result, indent=1, default=str), encoding="utf-8"
+                json.dumps(result, indent=1, default=str), encoding="utf-8", newline="\n"
             )
-            (args.out / f"{name}.md").write_text(text, encoding="utf-8")
+            (args.out / f"{name}.md").write_text(text, encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":

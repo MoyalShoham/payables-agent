@@ -222,6 +222,8 @@ def test_recording_calls_once_and_replay_needs_no_client(tmp_path: Path) -> None
     second = recorder.extract(doc)
     assert len(messages.calls) == 1
     assert first == second
+    # Recordings are committed: LF on every platform (Windows would otherwise write CRLF).
+    assert all(b"\r" not in p.read_bytes() for p in tmp_path.glob("*.json"))
 
     replay = ReplayExtractor(store)
     assert replay.extract(doc) == first
