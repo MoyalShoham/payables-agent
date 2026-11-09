@@ -18,6 +18,7 @@ export interface DraftSummary {
   invoice_number: string | null
   amount: Money | null
   flags: string[]
+  failed_checks: string[]
   requires_bank_verification: boolean
   created_at: string
 }

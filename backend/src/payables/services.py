@@ -15,6 +15,7 @@ from typing import Any
 from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError
 from sqlalchemy import select
+from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.orm import Session, sessionmaker
 
 from payables import audit, tax_id
@@ -86,22 +87,24 @@ class Payables:
     # ---- users and vendors -------------------------------------------------------------------
 
     def ensure_users(self, approver_password: str, admin_password: str) -> None:
+        """Creates the demo users if missing. Safe when several processes start at once."""
+        wanted = [
+            (AGENT_USERNAME, "Payables agent", Role.AGENT, None),
+            ("approver", "Dana (approver)", Role.APPROVER, approver_password),
+            ("admin", "Avi (admin)", Role.ADMIN, admin_password),
+        ]
         with self.sessions.begin() as s:
-            wanted = [
-                (AGENT_USERNAME, "Payables agent", Role.AGENT, None),
-                ("approver", "Dana (approver)", Role.APPROVER, approver_password),
-                ("admin", "Avi (admin)", Role.ADMIN, admin_password),
-            ]
             for username, name, role, password in wanted:
-                if s.scalars(select(User).where(User.username == username)).first() is None:
-                    s.add(
-                        User(
-                            username=username,
-                            display_name=name,
-                            role=role,
-                            password_hash=hash_password(password) if password else None,
-                        )
+                s.execute(
+                    pg_insert(User)
+                    .values(
+                        username=username,
+                        display_name=name,
+                        role=role,
+                        password_hash=hash_password(password) if password else None,
                     )
+                    .on_conflict_do_nothing(index_elements=["username"])
+                )
 
     def agent(self, s: Session) -> User:
         user = s.scalars(select(User).where(User.username == AGENT_USERNAME)).one()
@@ -372,6 +375,7 @@ def draft_summary(s: Session, draft: DraftRow) -> dict[str, Any]:
         "invoice_number": invoice.invoice_number,
         "amount": None if draft.amount is None else str(draft.amount),
         "flags": [f["code"] for f in draft.flags],
+        "failed_checks": [c["name"] for c in draft.checks if c["status"] == "FAIL"],
         "requires_bank_verification": draft.requires_bank_verification,
         "created_at": draft.created_at.isoformat(),
     }

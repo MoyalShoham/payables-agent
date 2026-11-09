@@ -67,7 +67,12 @@ export function Queue({ onOpen }: { onOpen: (id: number) => void }) {
                 <td>
                   <span className={`state ${d.state}`}>{STATE_LABEL[d.state]}</span>
                 </td>
-                <td>{d.flags.map((f) => f.replaceAll('_', ' ').toLowerCase()).join(', ')}</td>
+                <td>
+                  {[
+                    ...d.flags.map((f) => f.replaceAll('_', ' ').toLowerCase()),
+                    ...d.failed_checks.map((c) => `failed: ${c.replaceAll('_', ' ')}`),
+                  ].join(', ')}
+                </td>
               </tr>
             ))}
           </tbody>

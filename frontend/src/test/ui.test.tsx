@@ -21,6 +21,7 @@ const draft = (over: Partial<DraftDetail> = {}): DraftDetail => ({
   invoice_number: '1',
   amount: '1180.00',
   flags: ['BANK_DETAILS_CHANGED'],
+  failed_checks: [],
   requires_bank_verification: true,
   created_at: '2025-06-01T10:00:00Z',
   extracted: null,

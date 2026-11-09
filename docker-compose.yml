@@ -1,0 +1,69 @@
+# docker compose up --build    then open http://localhost:3100  (sign in as approver / admin)
+#
+# Without an ANTHROPIC_API_KEY the API replays recorded model answers (and the demo falls back to
+# ground truth for documents without one, labelled as such). Set PAYABLES_EXTRACTION=live and the
+# key in .env to read new invoices with Claude.
+x-backend: &backend
+  build: ./backend
+  env_file:
+    - path: .env
+      required: false
+  environment: &backend-env
+    PAYABLES_DATABASE_URL: postgresql+psycopg://payables:${POSTGRES_PASSWORD:-payables}@db:5432/payables
+    PAYABLES_EXTRACTION: ${PAYABLES_EXTRACTION:-replay}
+    # The demo's synthetic invoices are dated mid-2025; pin "today" for the date checks.
+    PAYABLES_TODAY: ${PAYABLES_TODAY:-2025-07-01}
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: payables
+      POSTGRES_USER: payables
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-payables}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U payables -d payables"]
+      interval: 3s
+      retries: 20
+
+  migrate:
+    <<: *backend
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      db:
+        condition: service_healthy
+
+  seed:
+    <<: *backend
+    command: ["python", "-m", "payables.seed"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  api:
+    <<: *backend
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  agent:
+    <<: *backend
+    # Drop invoice files or saved .eml emails into ./inbox; the agent prepares drafts.
+    command: ["python", "-m", "payables.ingest", "--inbox", "/inbox", "--watch"]
+    volumes:
+      - ./inbox:/inbox
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  web:
+    build: ./frontend
+    depends_on:
+      - api
+    ports:
+      - "127.0.0.1:${PAYABLES_PORT:-3100}:80"
+
+volumes:
+  pgdata:

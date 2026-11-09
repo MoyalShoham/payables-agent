@@ -21,3 +21,7 @@ frontend/dist/
 .DS_Store
 .idea/
 .vscode/
+
+# Agent inbox contents
+inbox/*
+!inbox/.gitkeep
