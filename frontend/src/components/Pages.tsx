@@ -63,7 +63,7 @@ export function Queue({ onOpen }: { onOpen: (id: number) => void }) {
                 <td>{d.id}</td>
                 <td dir="auto">{d.vendor ?? '—'}</td>
                 <td>{d.invoice_number ?? '—'}</td>
-                <td className="num">{money(d.amount)}</td>
+                <td className="num">{money(d.amount, d.currency)}</td>
                 <td>
                   <span className={`state ${d.state}`}>{STATE_LABEL[d.state]}</span>
                 </td>
@@ -146,6 +146,7 @@ export function Vendors() {
             <th>Name</th>
             <th>Tax ID</th>
             <th>Bank account</th>
+            <th>Phones on file</th>
           </tr>
         </thead>
         <tbody>
@@ -153,7 +154,8 @@ export function Vendors() {
             <tr key={v.id}>
               <td dir="auto">{v.name}</td>
               <td>{v.tax_id}</td>
-              <td dir="auto">{bank(v.bank)}</td>
+              <td dir="ltr">{bank(v.bank)}</td>
+              <td>{v.phones.length ? v.phones.join(', ') : '—'}</td>
             </tr>
           ))}
         </tbody>
@@ -186,8 +188,8 @@ export function Payments() {
             <tr key={p.id}>
               <td>{p.reference}</td>
               <td>#{p.draft_id}</td>
-              <td className="num">{money(p.amount)}</td>
-              <td dir="auto">{bank(p.pay_to)}</td>
+              <td className="num">{money(p.amount, p.currency)}</td>
+              <td dir="ltr">{bank(p.pay_to)}</td>
               <td>{when(p.created_at)}</td>
             </tr>
           ))}
@@ -211,12 +213,17 @@ export function Audit() {
               .verifyAudit()
               .then((v) =>
                 setVerdict(
-                  v.intact ? 'Hash chain intact' : `Chain broken at entry ${v.first_broken_entry}`,
+                  v.intact
+                    ? `Chain intact: ${v.entries} entries` +
+                        (v.checkpoint
+                          ? `, including checkpoint ${v.checkpoint.seq}`
+                          : ' (no checkpoint yet)')
+                    : `Problem: ${v.problem ?? `entry ${v.first_broken_entry}`}`,
                 ),
               )
           }
         >
-          Verify the hash chain
+          Verify the audit chain
         </button>
       </div>
       {verdict && <p role="status">{verdict}</p>}

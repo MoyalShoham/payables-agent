@@ -1,5 +1,7 @@
 import type {
   AuditEntry,
+  AuditVerification,
+  CallbackRecord,
   DraftDetail,
   DraftState,
   DraftSummary,
@@ -51,11 +53,12 @@ export const api = {
   drafts: (state?: DraftState) =>
     request<DraftSummary[]>(`/drafts${state ? `?state=${state}` : ''}`),
   draft: (id: number) => request<DraftDetail>(`/drafts/${id}`),
-  approve: (id: number, comment: string, bankVerificationNote: string | null) =>
+  approve: (id: number, comment: string, callback: CallbackRecord | null) =>
     request<{ state: string; simulated_payment_id: number }>(
       `/drafts/${id}/approve`,
-      json('POST', { comment: comment || null, bank_verification_note: bankVerificationNote }),
+      json('POST', { comment: comment || null, callback }),
     ),
+  recheck: (id: number) => request<{ status: string }>(`/drafts/${id}/recheck`, { method: 'POST' }),
   reject: (id: number, comment: string) =>
     request<{ state: string }>(`/drafts/${id}/reject`, json('POST', { comment })),
   upload: (file: File, messageText: string) => {
@@ -70,8 +73,7 @@ export const api = {
   vendors: () => request<Vendor[]>('/vendors'),
   payments: () => request<Payment[]>('/payments'),
   audit: () => request<AuditEntry[]>('/audit'),
-  verifyAudit: () =>
-    request<{ intact: boolean; first_broken_entry: number | null }>('/audit/verify'),
+  verifyAudit: () => request<AuditVerification>('/audit/verify'),
   documentUrl: (id: number) => `/api/documents/${id}/content`,
   previewUrl: (id: number) => `/api/documents/${id}/preview`,
 }

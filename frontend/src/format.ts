@@ -1,33 +1,45 @@
 import type { Bank, DraftState, Money } from './types'
 
-const ils = new Intl.NumberFormat('en-IL', { style: 'currency', currency: 'ILS' })
+const formats = new Map<string, Intl.NumberFormat>()
 
-/** Display only: the decimal string becomes a number just to be formatted. */
-export const money = (m: Money | null | undefined): string =>
-  m == null ? '—' : ils.format(Number(m))
-
-export const bank = (b: Bank | null | undefined): string => {
-  if (!b) return '—'
-  if (b.iban) return b.iban
-  return [
-    b.bank_name,
-    b.bank_code && `bank ${b.bank_code}`,
-    b.branch && `branch ${b.branch}`,
-    b.account && `account ${b.account}`,
-  ]
-    .filter(Boolean)
-    .join(', ')
+const formatter = (currency: string): Intl.NumberFormat => {
+  let f = formats.get(currency)
+  if (!f) {
+    try {
+      f = new Intl.NumberFormat('en-IL', { style: 'currency', currency })
+    } catch {
+      // Not an ISO code the browser knows: show the code next to the number.
+      f = new Intl.NumberFormat('en-IL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+    }
+    formats.set(currency, f)
+  }
+  return f
 }
 
-export const sameAccount = (a: Bank | null | undefined, b: Bank | null | undefined): boolean => {
-  if (!a || !b) return true
-  const key = (x: Bank) =>
-    x.iban
-      ? x.iban.replace(/\s/g, '').toUpperCase()
-      : [x.bank_code, x.branch, x.account]
-          .map((p) => (p ?? '').replace(/\D/g, '').replace(/^0+/, ''))
-          .join('-')
-  return key(a) === key(b)
+/** Display only: the decimal string becomes a number just to be formatted. */
+export const money = (m: Money | null | undefined, currency = 'ILS'): string => {
+  if (m == null) return '—'
+  const text = formatter(currency).format(Number(m))
+  return /^[A-Z]{3}$/.test(currency) && !text.match(/[^\d.,\s-]/) ? `${text} ${currency}` : text
+}
+
+/**
+ * Every field that is present: an IBAN and a local account can disagree, so both are shown. Meant
+ * for a left-to-right element; a Hebrew bank name sits beside its code so it cannot reorder the
+ * numbers.
+ */
+export const bank = (b: Bank | null | undefined): string => {
+  if (!b) return '—'
+  const code = b.bank_code
+    ? `bank ${b.bank_code}${b.bank_name ? ` ${b.bank_name}` : ''}`
+    : b.bank_name
+  const parts = [
+    code,
+    b.branch && `branch ${b.branch}`,
+    b.account && `account ${b.account}`,
+    b.iban && `IBAN ${b.iban}`,
+  ].filter(Boolean)
+  return parts.length ? parts.join(', ') : '—'
 }
 
 export const STATE_LABEL: Record<DraftState, string> = {

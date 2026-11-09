@@ -311,3 +311,22 @@ footer {
   text-align: center;
   font-size: 0.85rem;
 }
+
+.callback {
+  border: 1px solid var(--border, #d0d4dc);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem 0.8rem;
+  display: grid;
+  gap: 0.5rem;
+}
+.callback legend {
+  padding: 0 0.3rem;
+  font-size: 0.9rem;
+}
+.callback label {
+  display: grid;
+  gap: 0.2rem;
+}
+.message {
+  white-space: pre-line;
+}

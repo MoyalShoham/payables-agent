@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api, ApiError } from '../api'
-import { bank, money, sameAccount, STATE_LABEL, when } from '../format'
+import { bank, money, STATE_LABEL, when } from '../format'
 import type { DraftDetail, User } from '../types'
 import { DecisionPanel } from './DecisionPanel'
 
@@ -30,7 +30,15 @@ export function DraftView({ id, user, onBack }: { id: number; user: User; onBack
   if (!draft) return <p className="muted">Loading…</p>
   const x = draft.extracted
   const invoiceBank = x?.bank ?? null
-  const bankDiffers = !sameAccount(invoiceBank, draft.pay_to)
+  // The backend compares every printed field; the UI shows its verdict rather than redoing it.
+  const bankDiffers = draft.flags.includes('BANK_DETAILS_CHANGED')
+  const bankUnverifiable = draft.flags.includes('BANK_DETAILS_UNVERIFIABLE')
+  const cur = draft.currency
+  const submitter = draft.document.uploaded_by
+    ? `submitted by ${draft.document.uploaded_by}`
+    : draft.document.submitted_by_email
+      ? `emailed from ${draft.document.submitted_by_email} (sender not verified)`
+      : 'from the inbox folder (submitter unknown)'
 
   return (
     <div className="draft">
@@ -45,14 +53,15 @@ export function DraftView({ id, user, onBack }: { id: number; user: User; onBack
         <section className="card preview">
           <img alt="Invoice document" src={api.previewUrl(draft.document.id)} />
           <p className="muted">
-            {draft.document.filename}
-            {draft.document.uploaded_by
-              ? `, uploaded by ${draft.document.uploaded_by}`
-              : ', from the inbox'}
+            <bdi>{draft.document.filename}</bdi>, {submitter}.{' '}
+            <a href={api.documentUrl(draft.document.id)}>Download the original</a>
           </p>
           {draft.document.message_text && (
-            <blockquote dir="auto">
-              <strong>Covering message:</strong> {draft.document.message_text}
+            <blockquote>
+              <strong>Covering message:</strong>{' '}
+              <span dir="auto" className="message">
+                {draft.document.message_text}
+              </span>
             </blockquote>
           )}
         </section>
@@ -74,13 +83,14 @@ export function DraftView({ id, user, onBack }: { id: number; user: User; onBack
             <h2>Payment</h2>
             <dl className="facts">
               <dt>Amount</dt>
-              <dd>{money(draft.amount)}</dd>
+              <dd>{money(draft.amount, cur)}</dd>
               <dt>Pays to (vendor master)</dt>
-              <dd>{bank(draft.pay_to)}</dd>
+              <dd dir="ltr">{bank(draft.pay_to)}</dd>
               <dt>Account on the invoice</dt>
-              <dd className={bankDiffers ? 'differs' : ''}>
+              <dd dir="ltr" className={bankDiffers || bankUnverifiable ? 'differs' : ''}>
                 {bank(invoiceBank)}
                 {bankDiffers && ' (differs from the account on file)'}
+                {bankUnverifiable && ' (cannot be compared with the account on file)'}
               </dd>
             </dl>
           </section>
@@ -103,15 +113,16 @@ export function DraftView({ id, user, onBack }: { id: number; user: User; onBack
                   </dd>
                   <dt>Subtotal / VAT / total</dt>
                   <dd>
-                    {money(x.subtotal)} / {money(x.vat_amount)} / {money(x.total)}
+                    {money(x.subtotal, cur)} / {money(x.vat_amount, cur)} / {money(x.total, cur)}
                   </dd>
                   <dt>Lines</dt>
                   <dd>
                     <ul className="lines">
                       {x.line_items.map((li, i) => (
-                        <li key={i} dir="auto">
-                          {li.description}: {li.quantity ?? ''} × {money(li.unit_price)} ={' '}
-                          {money(li.amount)}
+                        // The description is isolated so a Hebrew one does not reorder the numbers.
+                        <li key={i}>
+                          <bdi>{li.description}</bdi>: {li.quantity ?? '—'} ×{' '}
+                          {money(li.unit_price, cur)} = {money(li.amount, cur)}
                         </li>
                       ))}
                     </ul>
