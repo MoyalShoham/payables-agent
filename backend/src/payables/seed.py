@@ -5,7 +5,8 @@
 Invoices go through the real pipeline as the agent. With recorded model answers for a document
 (the evaluation recordings), those are replayed; otherwise the invoice's ground truth stands in
 and the draft says "ground truth (demo, no model call)", so nobody mistakes it for an extraction.
-Until model recordings are committed, every demo draft is of the second kind.
+The PDFs replay; the scans do not in the Linux image, whose PNG re-encoding differs from the
+macOS/Windows one the recordings were made on, so their hashes find no recording.
 
 Runs with the bootstrap database user (it writes the vendor master and the payment history, which no
 application role may do in bulk) and with PAYABLES_TODAY pinned, because the synthetic invoices are

@@ -130,10 +130,12 @@ passwords into a Docker volume; the API refuses to start with a missing, short o
 The only published port is on 127.0.0.1.
 
 The demo loads 35 vendors (with bank accounts and phone numbers on file), their payment history and
-twelve invoices that exercise each risk. **The demo does not call a model:** no model recordings are
-committed yet, so each demo draft is built from the invoice's ground truth and says so ("ground
-truth (demo, no model call)"). Uploads in the default replay mode have no recording either, so they
-become "could not be read" drafts.
+twelve invoices that exercise each risk. **The demo does not call a model.** The six PDFs replay
+Claude's recorded answers from the evaluation. The six scans are built from the invoice's ground
+truth and say so ("ground truth (demo, no model call)"). Their recordings exist, but the Linux image
+re-encodes a scan to different PNG bytes than macOS and Windows do (the zlib bundled with Pillow
+differs), so the scan's hash finds no recording. Uploads in the default replay mode have no
+recording either, so they become "could not be read" drafts.
 
 To read new invoices with Claude, put `ANTHROPIC_API_KEY` in `.env` (see `.env.example`), set
 `PAYABLES_EXTRACTION=live`, then upload in the UI or drop PDFs, images or saved `.eml` emails into
@@ -179,7 +181,7 @@ byte-identical. The categories, 15 with a planted problem and 2 controls:
 | not_payable | a quote or a receipt | `document_type` fails |
 
 The splits are **dev** (100 invoices) and **holdout** (200). The prompt and the rules were developed
-on dev. Holdout is to be recorded with the model and scored once.
+on dev. Holdout was recorded with the model once, after the last prompt change, and scored once.
 
 ```bash
 cd backend
@@ -235,17 +237,56 @@ against it, so 26 of 30 is an upper bound, not a held-out measurement. The misse
 never say "new" or "changed" ("our previous account is closed"). This is why the decisive control is
 the vendor-master account plus the callback, not the wording check.
 
-**End to end with Claude:** field-level extraction accuracy, per-risk detection and false alarms on
-the holdout split, from recorded `claude-opus-5-5` answers. **Pending:** the recordings need an API
-key that was not available when this was written. Until they are committed, there are no model
-numbers here, and CI checks only the oracle and the wording set.
+**End to end with Claude (holdout, 200 invoices, recorded once).** Each invoice was read by
+`claude-opus-5-5` at medium effort (prompt 2026-11-09.3), then went through the same checks and
+rules as the oracle ([holdout](backend/eval/results-holdout.md)). CI replays the recorded answers
+(199 for 200 invoices: the two exact duplicates share one) and fails if any result differs.
+
+| Holdout, 200 invoices | Claude | Oracle |
+|---|---:|---:|
+| All key fields correct (tax ID, number, date, total, bank) | 99% (198) | – |
+| ... PDFs (124) / scans (76) | 100% / 97% (74) | – |
+| Planted problems caught, of 116 | 115 | 115 |
+| ... BLOCKED / NEEDS ATTENTION | 60 / 55 | 60 / 55 |
+| False alarms on the 84 controls | 5 (6%) | 3 (4%) |
+| Prompt-injection invoices whose total was kept, not set to 1.00 | 6 of 6 | – |
+| API cost at list price | about $4.90 | – |
+
+What this does and does not show:
+
+- **Reading added two false alarms, and both failed safe.** Both were rotated, noisy scans. In one,
+  bank code 11 was read as the branch. The account could not be matched to the vendor master, so
+  the draft went to a person as "unverifiable", not "changed". In the other, an upside-down scan,
+  the model could not read one line item's amount. It answered with an empty amount and said so in
+  `notes`, so the invoice could not be parsed and went to a person unread. Its key fields were read
+  correctly.
+- **Detection matches the oracle exactly:** every planted problem the rules can catch on the ground
+  truth, they also caught on Claude's reading. The one miss is the oracle's amount anomaly. So on
+  these documents the reading is not the weak link. The limits are the rules' (above) and the
+  synthetic data's (below).
+- **Dev changed the prompt three times before holdout**, each recorded in
+  [decisions 15](docs/decisions.md):
+  - the schema had too many nullable fields for the API;
+  - a Hebrew bank notice paraphrased in English slipped past the wording check;
+  - a lookalike vendor's misspelled name was silently corrected.
+
+  On dev (100 invoices) the final prompt matched the oracle, with 0 false alarms on 42 controls.
 
 ## Limitations and next steps
 
 - **Synthetic invoices only.** Real invoices have logos, stamps, handwriting, multi-page statements
   and layouts no generator anticipates. The next step is a few hundred real (redacted) invoices with
   hand-checked ground truth.
-- **No model results yet** (see above), so nothing here shows how well Claude reads these invoices.
+- **The model results are on clean synthetic layouts.** PDFs were read perfectly and scans at 97%.
+  That says little about real invoices (above), and two holdout scans needed a person.
+- **A scan's identity depends on the platform.** Documents are keyed by the SHA-256 of what the
+  model reads, and for a scan that is a re-encoded PNG whose bytes differ between Linux and
+  macOS/Windows. Within one deployment this is consistent. It is why the Docker demo shows scans
+  from ground truth. Hashing the decoded pixels would fix it, but it would change every recording
+  key, so it waits for the next evaluation round.
+- **One unreadable line item rejects the whole reading.** The invoice then reaches a person with no
+  fields filled in, even when the totals were legible. Parsing the rest and flagging the line would
+  save that work. The change belongs with a fresh holdout set, because this one has been used.
 - **One person can approve a bank change.** The callback is recorded and constrained, but nothing
   stops an approver from recording a call they did not make. A second approver for bank changes
   (and for amounts above a threshold) is the next control to build; the schema has a single
