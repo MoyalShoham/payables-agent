@@ -1,4 +1,4 @@
-Split `holdout`: 200 invoices, oracle (rules on ground truth), prompt 2025-11-09.1.
+Split `holdout`: 200 invoices, oracle (rules on ground truth), prompt 2026-11-09.1.
 
 - Invoices with a planted problem: 116. BLOCKED 60, NEEDS_ATTENTION 55, could not be read 0, **READY (missed) 1**
 - False alarms on the 84 controls (nothing planted): **3 (4%)**

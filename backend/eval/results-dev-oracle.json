@@ -1,7 +1,7 @@
 {
  "split": "dev",
  "mode": "oracle (rules on ground truth)",
- "prompt_version": "2025-11-09.1",
+ "prompt_version": "2026-11-09.1",
  "samples": 100,
  "planted_problem_samples": 58,
  "planted_outcomes": {
