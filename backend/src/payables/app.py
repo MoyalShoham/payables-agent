@@ -25,7 +25,9 @@ def extractor_for(settings: Settings) -> Extractor:
 
 def build(settings: Settings | None = None) -> tuple[Payables, Settings]:
     settings = settings or Settings()
-    service = Payables(make_sessionmaker(make_engine(settings.database_url)), extractor_for(settings))
+    service = Payables(
+        make_sessionmaker(make_engine(settings.database_url)), extractor_for(settings), today=settings.today
+    )
     service.ensure_users(settings.approver_password, settings.admin_password)
     return service, settings
 

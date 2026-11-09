@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from datetime import date
 from enum import StrEnum
 from pathlib import Path
 
@@ -28,3 +29,5 @@ class Settings(BaseSettings):
     approver_password: str = "change-me-approver"  # noqa: S105 - demo users, documented in .env.example
     admin_password: str = "change-me-admin"  # noqa: S105
     secure_cookies: bool = False
+    #: Pins "today" for the date checks. Only for the demo, whose synthetic invoices are dated mid-2025.
+    today: date | None = None
