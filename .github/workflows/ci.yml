@@ -25,12 +25,15 @@ jobs:
         run: uv run mypy
       - name: Tests (PostgreSQL via Testcontainers)
         run: uv run pytest
-      - name: Evaluation from recorded responses (no API key)
+      - name: Evaluation results reproduce from the repository (no API key)
         run: |
-          uv run python -m payables.evaluation run --split holdout --oracle
+          uv run python -m payables.evaluation run --split dev --oracle --out eval
+          uv run python -m payables.evaluation run --split holdout --oracle --out eval
+          uv run python -m payables.evaluation phrasings --out eval
           if ls eval/recordings/*.json >/dev/null 2>&1; then
-            uv run python -m payables.evaluation run --split holdout --out target
+            uv run python -m payables.evaluation run --split holdout --out eval
           fi
+          git diff --exit-code -- eval
 
   frontend:
     runs-on: ubuntu-latest
@@ -56,4 +59,11 @@ jobs:
     needs: [backend, frontend]
     steps:
       - uses: actions/checkout@v4
-      - run: docker compose build
+      - name: One-command run, then a smoke test through nginx
+        run: |
+          docker compose up -d --build
+          python3 scripts/smoke.py http://127.0.0.1:3100
+      - name: Logs on failure
+        if: failure()
+        run: docker compose logs --no-color | tail -300
+      - run: docker compose down -v
