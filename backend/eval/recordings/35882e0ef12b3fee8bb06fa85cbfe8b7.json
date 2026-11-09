@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"עמק יזרעאל ריהוט משרדי\",\"vendor_tax_id\":\"511293532\",\"invoice_number\":\"75509\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-05-08\",\"due_date\":\"2025-06-07\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"כיסא משרדי ארגונומי\",\"quantity\":\"1\",\"unit_price\":\"1199.20\",\"amount\":\"1199.20\"}],\"subtotal\":\"1199.20\",\"vat_rate\":\"18%\",\"vat_amount\":\"215.86\",\"total\":\"1415.06\",\"bank\":{\"bank_name\":\"הפועלים\",\"bank_code\":\"12\",\"branch\":\"317\",\"account\":\"314670548\",\"iban\":\"\"},\"notes\":\"The accompanying message claims a bank details change: \\\"Please note that our bank details have changed; the new account is in the attached letter.\\\" No such letter was attached; only the invoice was received. The bank details above are the ones printed on the invoice. Verify any change with the supplier through a known contact before paying.\"}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4144,
+  "output_tokens": 439
+ }
+}

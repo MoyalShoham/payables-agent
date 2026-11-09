@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"נגב מערכות מיזוג בע\\\"מ\",\"vendor_tax_id\":\"512183310\",\"invoice_number\":\"72876\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-03-31\",\"due_date\":\"2025-03-31\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"חלקי חילוף\",\"quantity\":\"2\",\"unit_price\":\"832.82\",\"amount\":\"1665.64\"}],\"subtotal\":\"1665.64\",\"vat_rate\":\"18%\",\"vat_amount\":\"299.82\",\"total\":\"1965.46\",\"bank\":{\"bank_name\":\"דיסקונט\",\"bank_code\":\"11\",\"branch\":\"793\",\"account\":\"691881603\",\"iban\":\"\"},\"notes\":\"שימו לב: חשבון בנק חדש. נא לעדכן את פרטי החשבון לתשלום.\"}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5063,
+  "output_tokens": 279
+ }
+}

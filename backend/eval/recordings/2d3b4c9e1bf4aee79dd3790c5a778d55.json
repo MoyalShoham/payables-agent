@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"ברוש חשמל ותאורה בע\\\"מ\",\"vendor_tax_id\":\"512143033\",\"invoice_number\":\"81160\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-04-08\",\"due_date\":\"2025-05-08\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"שירות טכנאי\",\"quantity\":\"24\",\"unit_price\":\"597.88\",\"amount\":\"14349.12\"}],\"subtotal\":\"14349.12\",\"vat_rate\":\"18%\",\"vat_amount\":\"2582.84\",\"total\":\"16931.96\",\"bank\":{\"bank_name\":\"הבינלאומי\",\"bank_code\":\"31\",\"branch\":\"607\",\"account\":\"655188072\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5172,
+  "output_tokens": 243
+ }
+}

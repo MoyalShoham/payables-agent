@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Eilat Travel Ltd\",\"vendor_tax_id\":\"517875696\",\"invoice_number\":\"24930\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-05-10\",\"due_date\":\"2025-07-09\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Sea freight - container\",\"quantity\":\"5\",\"unit_price\":\"8394.06\",\"amount\":\"41970.30\"}],\"subtotal\":\"41970.30\",\"vat_rate\":\"18%\",\"vat_amount\":\"7554.65\",\"total\":\"49524.95\",\"bank\":{\"bank_name\":\"Leumi\",\"bank_code\":\"10\",\"branch\":\"477\",\"account\":\"936319198\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5396,
+  "output_tokens": 232
+ }
+}

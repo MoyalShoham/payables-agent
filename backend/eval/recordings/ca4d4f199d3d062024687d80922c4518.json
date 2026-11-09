@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"זית מוצרי ניקוי\",\"vendor_tax_id\":\"513024026\",\"invoice_number\":\"42168\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-04-05\",\"due_date\":\"2025-06-04\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"חומרי ניקוי\",\"quantity\":\"3\",\"unit_price\":\"311.22\",\"amount\":\"933.66\"}],\"subtotal\":\"1344.66\",\"vat_rate\":\"18%\",\"vat_amount\":\"242.04\",\"total\":\"1586.70\",\"bank\":{\"bank_name\":\"הפועלים\",\"bank_code\":\"12\",\"branch\":\"472\",\"account\":\"791791110\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4055,
+  "output_tokens": 233
+ }
+}

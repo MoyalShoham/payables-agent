@@ -1,4 +1,4 @@
-Split `dev`: 100 invoices, oracle (rules on ground truth), prompt 2026-11-09.2.
+Split `dev`: 100 invoices, oracle (rules on ground truth), prompt 2026-11-09.3.
 
 - Invoices with a planted problem: 58. BLOCKED 30, NEEDS_ATTENTION 27, could not be read 0, **READY (missed) 1**
 - False alarms on the 42 controls (nothing planted): **0 (0%)**

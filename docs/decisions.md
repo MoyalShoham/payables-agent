@@ -227,3 +227,16 @@ no stale answer can be replayed.
   - **Rejected:** empty strings everywhere, which would lose the `format: date` constraint on dates
     and blur "not printed" on the fields the risk rules depend on; and dropping fields.
   - **Guarded by:** a test counts the schema's union-typed parameters the way the API does.
+- **Quote notices word for word; copy names letter for letter (prompt 2026-11-09.3).** On dev,
+  every model result matched the oracle except two reading problems:
+  - **A paraphrased bank notice.** Two invoices printed "שימו לב: חשבון בנק חדש…", and the model
+    summarised it in English in `notes` ("the bank account is new…"). The wording check never saw
+    the printed words, so BANK_CHANGE_REQUESTED caught 4 of 6. The comparison with the vendor
+    master still flagged both (8 of 8). `notes` now quotes such text in its original language.
+    Result: 6 of 6.
+  - **A lookalike name, corrected.** A planted lookalike vendor's name had one extra letter, and the
+    model fixed it. That hides the very thing a payer must see. Names are now copied letter for
+    letter. Result: vendor_name 98% to 99%. The one left is a misread on a rotated scan.
+  - Both rules follow decision 2. A test keeps them in the prompt.
+  - Dev recordings from the superseded prompts were deleted. Each change was a full dev re-run.
+    Holdout is recorded once, after the last of these changes.

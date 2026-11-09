@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"אבל ייעוץ משפטי\",\"vendor_tax_id\":\"515535193\",\"invoice_number\":\"81116\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2024-10-22\",\"due_date\":\"2024-12-06\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"סדנה\",\"quantity\":\"12\",\"unit_price\":\"5428.36\",\"amount\":\"65140.32\"}],\"subtotal\":\"65140.32\",\"vat_rate\":\"17%\",\"vat_amount\":\"11073.85\",\"total\":\"76214.17\",\"bank\":{\"bank_name\":\"לאומי\",\"bank_code\":\"10\",\"branch\":\"611\",\"account\":\"684624389\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4056,
+  "output_tokens": 231
+ }
+}

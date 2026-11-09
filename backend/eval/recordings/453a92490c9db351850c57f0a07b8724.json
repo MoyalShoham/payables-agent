@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Hermon Print Ltd\",\"vendor_tax_id\":\"515596468\",\"invoice_number\":\"2002\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2024-08-10\",\"due_date\":\"2024-09-09\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"שלט חוצות\",\"quantity\":\"1\",\"unit_price\":\"3302.75\",\"amount\":\"3302.75\"},{\"description\":\"הדפסת קטלוגים\",\"quantity\":\"3\",\"unit_price\":\"13.69\",\"amount\":\"41.07\"}],\"subtotal\":\"3343.82\",\"vat_rate\":\"17%\",\"vat_amount\":\"568.45\",\"total\":\"3912.27\",\"bank\":{\"bank_name\":\"דיסקונט\",\"bank_code\":\"11\",\"branch\":\"123\",\"account\":\"3866788\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5172,
+  "output_tokens": 275
+ }
+}

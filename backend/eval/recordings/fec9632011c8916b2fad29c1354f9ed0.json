@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Yarden Office Ltd\",\"vendor_tax_id\":\"517727020\",\"invoice_number\":\"96924\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-05-10\",\"due_date\":\"2025-06-09\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Ergonomic office chair\",\"quantity\":\"1\",\"unit_price\":\"1568.35\",\"amount\":\"1568.35\"},{\"description\":\"Binders\",\"quantity\":\"2\",\"unit_price\":\"16.59\",\"amount\":\"33.18\"}],\"subtotal\":\"1601.53\",\"vat_rate\":\"18%\",\"vat_amount\":\"288.28\",\"total\":\"1889.81\",\"bank\":{\"bank_name\":\"Discount\",\"bank_code\":\"11\",\"branch\":\"112\",\"account\":\"403956545\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4028,
+  "output_tokens": 266
+ }
+}

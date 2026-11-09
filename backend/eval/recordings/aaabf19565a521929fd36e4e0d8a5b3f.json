@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Tavor Systems Ltd\",\"vendor_tax_id\":\"511612152\",\"invoice_number\":\"93300\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-06-26\",\"due_date\":\"2025-07-26\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"רישיון תוכנה שנתי\",\"quantity\":\"7\",\"unit_price\":\"2992.10\",\"amount\":\"20944.70\"},{\"description\":\"שעות פיתוח\",\"quantity\":\"13\",\"unit_price\":\"379.25\",\"amount\":\"4930.25\"},{\"description\":\"מחשב נייד\",\"quantity\":\"14\",\"unit_price\":\"5857.86\",\"amount\":\"82010.04\"}],\"subtotal\":\"107884.99\",\"vat_rate\":\"18%\",\"vat_amount\":\"19419.30\",\"total\":\"127304.29\",\"bank\":{\"bank_name\":\"מזרחי טפחות\",\"bank_code\":\"20\",\"branch\":\"734\",\"account\":\"718261933\",\"iban\":\"\"},\"notes\":\"שימו לב: חשבון בנק חדש. נא לעדכן את פרטי החשבון לתשלום.\"}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4172,
+  "output_tokens": 364
+ }
+}

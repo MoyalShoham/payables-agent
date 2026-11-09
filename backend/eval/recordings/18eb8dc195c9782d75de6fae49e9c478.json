@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"שרון שירותי הסעדה בע\\\"מ\",\"vendor_tax_id\":\"517315354\",\"invoice_number\":\"90033\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-06-20\",\"due_date\":\"2025-05-14\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"כיבוד לאירוע\",\"quantity\":\"3\",\"unit_price\":\"3243.12\",\"amount\":\"9729.36\"}],\"subtotal\":\"9729.36\",\"vat_rate\":\"18%\",\"vat_amount\":\"1751.28\",\"total\":\"11480.64\",\"bank\":{\"bank_name\":\"הפועלים\",\"bank_code\":\"12\",\"branch\":\"585\",\"account\":\"132000842\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5172,
+  "output_tokens": 350
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Galil Foods Ltd\",\"vendor_tax_id\":\"519651384\",\"invoice_number\":\"37810\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-03-03\",\"due_date\":\"2025-05-02\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"ארוחות צהריים לעובדים\",\"quantity\":\"12\",\"unit_price\":\"67.43\",\"amount\":\"809.16\"}],\"subtotal\":\"809.16\",\"vat_rate\":\"18%\",\"vat_amount\":\"145.65\",\"total\":\"954.81\",\"bank\":{\"bank_name\":\"דיסקונט\",\"bank_code\":\"11\",\"branch\":\"933\",\"account\":\"769167637\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4064,
+  "output_tokens": 235
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Carmel Health Ltd\",\"vendor_tax_id\":\"512687419\",\"invoice_number\":\"98556\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-06-05\",\"due_date\":\"2025-06-05\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Workshop\",\"quantity\":\"7\",\"unit_price\":\"4225.97\",\"amount\":\"29581.79\"},{\"description\":\"Consulting hours\",\"quantity\":\"1\",\"unit_price\":\"416.60\",\"amount\":\"416.60\"}],\"subtotal\":\"29998.39\",\"vat_rate\":\"18%\",\"vat_amount\":\"5399.71\",\"total\":\"35398.10\",\"bank\":{\"bank_name\":\"Discount\",\"bank_code\":\"11\",\"branch\":\"435\",\"account\":\"203330777\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4028,
+  "output_tokens": 265
+ }
+}

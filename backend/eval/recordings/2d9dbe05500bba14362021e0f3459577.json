@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Galil Foods Ltd\",\"vendor_tax_id\":\"519651384\",\"invoice_number\":\"44016\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-06-04\",\"due_date\":\"2025-07-04\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Staff lunches\",\"quantity\":\"13\",\"unit_price\":\"67.43\",\"amount\":\"876.59\"}],\"subtotal\":\"876.59\",\"vat_rate\":\"18%\",\"vat_amount\":\"157.79\",\"total\":\"1034.38\",\"bank\":{\"bank_name\":\"Hapoalim\",\"bank_code\":\"12\",\"branch\":\"588\",\"account\":\"107342210\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5063,
+  "output_tokens": 228
+ }
+}

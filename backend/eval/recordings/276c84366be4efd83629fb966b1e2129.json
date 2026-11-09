@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Golan Water Systems Ltd\",\"vendor_tax_id\":\"518651682\",\"invoice_number\":\"25609\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-05-07\",\"due_date\":\"2025-06-06\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"חוזה שירות (חודשי)\",\"quantity\":\"1\",\"unit_price\":\"2355.16\",\"amount\":\"2355.16\"},{\"description\":\"חלקי חילוף\",\"quantity\":\"9\",\"unit_price\":\"258.04\",\"amount\":\"2322.36\"}],\"subtotal\":\"4677.52\",\"vat_rate\":\"18%\",\"vat_amount\":\"841.95\",\"total\":\"5519.47\",\"bank\":{\"bank_name\":\"לאומי\",\"bank_code\":\"10\",\"branch\":\"400\",\"account\":\"675078973\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5645,
+  "output_tokens": 279
+ }
+}

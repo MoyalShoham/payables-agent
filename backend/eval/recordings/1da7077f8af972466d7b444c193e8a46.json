@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Arava Labs Ltd\",\"vendor_tax_id\":\"513287334\",\"invoice_number\":\"14620\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-03-08\",\"due_date\":\"2025-03-08\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Laptop\",\"quantity\":\"1\",\"unit_price\":\"5083.28\",\"amount\":\"5083.28\"}],\"subtotal\":\"5083.28\",\"vat_rate\":\"18%\",\"vat_amount\":\"914.99\",\"total\":\"5998.27\",\"bank\":{\"bank_name\":\"Leumi\",\"bank_code\":\"10\",\"branch\":\"509\",\"account\":\"556182858\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5108,
+  "output_tokens": 227
+ }
+}

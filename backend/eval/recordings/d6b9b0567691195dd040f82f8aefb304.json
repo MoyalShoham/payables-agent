@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Golan Water Systems Ltd\",\"vendor_tax_id\":\"518651682\",\"invoice_number\":\"22324\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-05-14\",\"due_date\":\"2025-06-13\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Spare parts\",\"quantity\":\"9\",\"unit_price\":\"258.04\",\"amount\":\"2322.36\"},{\"description\":\"Technician visit\",\"quantity\":\"1\",\"unit_price\":\"300.95\",\"amount\":\"300.95\"}],\"subtotal\":\"2623.31\",\"vat_rate\":\"18%\",\"vat_amount\":\"472.20\",\"total\":\"3095.51\",\"bank\":{\"bank_name\":\"Leumi\",\"bank_code\":\"10\",\"branch\":\"400\",\"account\":\"675078973\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5063,
+  "output_tokens": 266
+ }
+}

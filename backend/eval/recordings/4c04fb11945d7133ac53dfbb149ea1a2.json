@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"תמר הסעות ותיירות בע\\\"מ\",\"vendor_tax_id\":\"515318145\",\"invoice_number\":\"24876\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2024-11-22\",\"due_date\":\"2025-01-06\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"שילוח ימי - מכולה\",\"quantity\":\"1\",\"unit_price\":\"6904.18\",\"amount\":\"6904.18\"}],\"subtotal\":\"6904.18\",\"vat_rate\":\"17%\",\"vat_amount\":\"1173.71\",\"total\":\"8077.89\",\"bank\":{\"bank_name\":\"הפועלים\",\"bank_code\":\"12\",\"branch\":\"156\",\"account\":\"23494024\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4069,
+  "output_tokens": 245
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"ארבל ייעוץ משפטי\",\"vendor_tax_id\":\"516305190\",\"invoice_number\":\"34567\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-06-14\",\"due_date\":\"2025-07-29\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"ריטיינר חודשי\",\"quantity\":\"1\",\"unit_price\":\"5443.55\",\"amount\":\"5443.55\"},{\"description\":\"שעות ייעוץ\",\"quantity\":\"3\",\"unit_price\":\"526.31\",\"amount\":\"1578.93\"},{\"description\":\"סדנה\",\"quantity\":\"1\",\"unit_price\":\"2537.98\",\"amount\":\"2537.98\"}],\"subtotal\":\"9560.46\",\"vat_rate\":\"18%\",\"vat_amount\":\"1720.88\",\"total\":\"11281.34\",\"bank\":{\"bank_name\":\"הפועלים\",\"bank_code\":\"12\",\"branch\":\"713\",\"account\":\"260174153\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4117,
+  "output_tokens": 319
+ }
+}

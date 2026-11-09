@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Kinneret Media Ltd\",\"vendor_tax_id\":\"514745322\",\"invoice_number\":\"69525\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2024-11-16\",\"due_date\":\"2024-12-16\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Paid promotion\",\"quantity\":\"7\",\"unit_price\":\"5097.11\",\"amount\":\"35679.77\"},{\"description\":\"Campaign management\",\"quantity\":\"1\",\"unit_price\":\"6746.45\",\"amount\":\"6746.45\"}],\"subtotal\":\"42426.22\",\"vat_rate\":\"17%\",\"vat_amount\":\"7212.46\",\"total\":\"49638.68\",\"bank\":{\"bank_name\":\"Mizrahi-Tefahot\",\"bank_code\":\"20\",\"branch\":\"526\",\"account\":\"19656248\",\"iban\":\"\"},\"notes\":\"The accompanying message announces a bank account change: \\\"לתשומת לבכם: עדכון פרטי חשבון הבנק שלנו, נא להעביר את התשלום לחשבון החדש.\\\" The invoice itself has no change notice and no previous account to compare. Verify the bank details with the supplier through a known channel before paying.\"}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4142,
+  "output_tokens": 517
+ }
+}

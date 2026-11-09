@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Hermon Print Ltd\",\"vendor_tax_id\":\"515596468\",\"invoice_number\":\"31546\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2024-11-02\",\"due_date\":\"2024-12-02\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"כרטיסי ביקור\",\"quantity\":\"5\",\"unit_price\":\"163.20\",\"amount\":\"816.00\"},{\"description\":\"שלט חוצות\",\"quantity\":\"1\",\"unit_price\":\"3302.75\",\"amount\":\"3302.75\"},{\"description\":\"הדפסת קטלוגים\",\"quantity\":\"3\",\"unit_price\":\"13.69\",\"amount\":\"41.07\"}],\"subtotal\":\"4159.82\",\"vat_rate\":\"17%\",\"vat_amount\":\"707.17\",\"total\":\"4866.99\",\"bank\":{\"bank_name\":\"דיסקונט\",\"bank_code\":\"11\",\"branch\":\"123\",\"account\":\"3866788\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4120,
+  "output_tokens": 317
+ }
+}

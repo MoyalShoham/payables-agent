@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Lavi Courier Services Ltd\",\"vendor_tax_id\":\"519142913\",\"invoice_number\":\"10839\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-03-10\",\"due_date\":\"2025-04-09\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"תמיכה טכנית (חודשי)\",\"quantity\":\"3\",\"unit_price\":\"1486.52\",\"amount\":\"4459.56\"},{\"description\":\"רישיון תוכנה שנתי\",\"quantity\":\"4\",\"unit_price\":\"5557.59\",\"amount\":\"22230.36\"}],\"subtotal\":\"26689.92\",\"vat_rate\":\"18%\",\"vat_amount\":\"4804.19\",\"total\":\"31494.11\",\"bank\":{\"bank_name\":\"הבינלאומי\",\"bank_code\":\"31\",\"branch\":\"521\",\"account\":\"582111631\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4113,
+  "output_tokens": 292
+ }
+}
