@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import logging
+
 from fastapi import FastAPI
 
 from payables.api import create_app
@@ -24,14 +26,19 @@ def extractor_for(settings: Settings) -> Extractor:
 
 
 def build(settings: Settings | None = None) -> tuple[Payables, Settings]:
+    """The service for one process. Refuses to start without a usable audit key."""
     settings = settings or Settings()
     service = Payables(
-        make_sessionmaker(make_engine(settings.database_url)), extractor_for(settings), today=settings.today
+        make_sessionmaker(make_engine(settings.database_url)),
+        extractor_for(settings),
+        audit_key=settings.require_audit_key(),
+        today=settings.today,
+        anchors=settings.audit_anchors,
     )
-    service.ensure_users(settings.approver_password, settings.admin_password)
     return service, settings
 
 
 def make() -> FastAPI:
+    logging.basicConfig(level=logging.INFO)
     service, settings = build()
     return create_app(service, settings)
