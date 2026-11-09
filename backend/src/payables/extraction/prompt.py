@@ -1,7 +1,7 @@
 """The extraction prompt and the JSON schema the model must answer in.
 
-Changing either changes PROMPT_VERSION, which is part of every recording's key, so stale recordings
-are never replayed against a new prompt.
+Every recording's key includes a hash of the system prompt, of the exact user text and of the schema
+(plus PROMPT_VERSION, a human-readable label), so an edited prompt can never replay a stale answer.
 """
 
 from __future__ import annotations
@@ -10,7 +10,7 @@ import hashlib
 import json
 from typing import Any
 
-PROMPT_VERSION = "2025-11-09.1"
+PROMPT_VERSION = "2026-11-09.1"
 
 SYSTEM_PROMPT = """You read supplier invoices for an Israeli accounts-payable team and copy their
 fields into JSON.
@@ -112,6 +112,12 @@ SCHEMA: dict[str, Any] = {
 
 def schema_hash() -> str:
     return hashlib.sha256(json.dumps(SCHEMA, sort_keys=True).encode()).hexdigest()[:16]
+
+
+def prompt_hash(message_text: str | None) -> str:
+    """Hash of everything textual the model is sent: the system prompt and the user text, which
+    contains the covering message inside its template."""
+    return hashlib.sha256((SYSTEM_PROMPT + "\x00" + user_text(message_text)).encode()).hexdigest()
 
 
 def user_text(message_text: str | None) -> str:

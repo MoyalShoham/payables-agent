@@ -22,6 +22,9 @@ from payables.extraction.prompt import SCHEMA, SYSTEM_PROMPT, user_text
 DEFAULT_MODEL = "claude-opus-5-5"
 Effort = Literal["low", "medium", "high", "xhigh", "max"]
 DEFAULT_EFFORT: Effort = "medium"
+#: Below nginx's 180 s proxy timeout, so a slow call fails here (EXTRACTION_FAILED) instead of the
+#: browser getting a 503 while the draft is still created behind it.
+TIMEOUT_SECONDS = 120.0
 
 
 class Extractor(Protocol):
@@ -37,7 +40,7 @@ class ClaudeExtractor:
         model: str = DEFAULT_MODEL,
         effort: Effort = DEFAULT_EFFORT,
     ) -> None:
-        self.client = client or anthropic.Anthropic()
+        self.client = client or anthropic.Anthropic(timeout=TIMEOUT_SECONDS, max_retries=1)
         self.model = model
         self.effort: Effort = effort
 

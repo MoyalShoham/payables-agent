@@ -1,9 +1,10 @@
 """Record model responses once, replay them forever.
 
-A recording is keyed by everything that can change the answer: model, effort, prompt version,
-schema, the document's bytes and the accompanying message. CI and the evaluation replay recordings
-and never need an API key; a key mismatch means the prompt or the document changed, and replay
-fails loudly instead of silently reusing a stale answer.
+A recording is keyed by everything that can change the answer: model, effort, the system prompt and
+the user text (hashed, so any edit counts, and the covering message is part of the user text), the
+schema and the document's bytes. CI and the evaluation replay recordings and never need an API key;
+a key mismatch means the prompt or the document changed, and replay fails loudly instead of
+silently reusing a stale answer.
 """
 
 from __future__ import annotations
@@ -16,7 +17,7 @@ from pathlib import Path
 from payables.extraction.claude import DEFAULT_EFFORT, DEFAULT_MODEL, Effort, Extractor
 from payables.extraction.documents import SourceDocument
 from payables.extraction.model import RawExtraction
-from payables.extraction.prompt import PROMPT_VERSION, schema_hash
+from payables.extraction.prompt import PROMPT_VERSION, prompt_hash, schema_hash
 
 
 class MissingRecordingError(LookupError):
@@ -32,10 +33,10 @@ def recording_key(
     parts = {
         "model": model,
         "effort": effort,
-        "prompt": PROMPT_VERSION,
+        "prompt_version": PROMPT_VERSION,
+        "prompt": prompt_hash(message_text),
         "schema": schema_hash(),
         "document": document_sha256,
-        "message": hashlib.sha256((message_text or "").encode()).hexdigest(),
     }
     return hashlib.sha256(json.dumps(parts, sort_keys=True).encode()).hexdigest()[:32]
 
@@ -101,5 +102,5 @@ class ReplayExtractor:
         key = recording_key(document_sha256, message_text, self.model, self.effort)
         stored = self.store.load(key)
         if stored is None:
-            raise MissingRecordingError(f"no recording {key} for document {document_sha256[:12]}")
+            raise MissingRecordingError("no recorded model answer for this document and prompt")
         return stored
