@@ -114,8 +114,13 @@ class ImageCanvas:
         if r.blur:
             img = img.filter(ImageFilter.GaussianBlur(r.blur))
         if r.noise:
-            noise = Image.effect_noise(img.size, r.noise).convert("RGB")
-            img = Image.blend(img, noise, 0.08 + rng.random() * 0.04)
+            # Seeded noise (Image.effect_noise is not), so a rebuild gives byte-identical scans and
+            # the manifests' document hashes stay valid. Uniform grey noise, its spread set by r.noise.
+            w, h = img.size
+            spread = min(1.0, r.noise / 22)
+            grey = Image.frombytes("L", (w, h), rng.randbytes(w * h))
+            grey = grey.point(lambda v: int(128 + (v - 128) * spread))
+            img = Image.blend(img, grey.convert("RGB"), 0.08 + rng.random() * 0.04)
         if r.angle:
             img = img.rotate(
                 r.angle, expand=True, fillcolor=(205, 205, 200), resample=Image.Resampling.BICUBIC

@@ -1,0 +1,31 @@
+{
+ "about": "Hand-written bank-change phrasings that share no template with the synthetic generator, plus look-alike sentences that are not bank changes. Written before the patterns were improved; the improved patterns were then developed against this set, so the 'after' rate is an upper bound, not a held-out measurement.",
+ "positive_en": {
+  "flagged": 12,
+  "of": 15,
+  "missed": [
+   "Our previous account is closed. Pay into the account below from now on.",
+   "The IBAN on file is outdated. Use IL29 0120 0600 0000 0099 887.",
+   "We have opened an account with Discount Bank and ask that you pay there."
+  ]
+ },
+ "positive_he": {
+  "flagged": 14,
+  "of": 15,
+  "missed": [
+   "חשבון הבנק הישן נסגר, נא לא להעביר אליו כספים."
+  ]
+ },
+ "negative_en": {
+  "flagged": 0,
+  "of": 6,
+  "false_alarms": []
+ },
+ "negative_he": {
+  "flagged": 1,
+  "of": 6,
+  "false_alarms": [
+   "מנהל החשבון החדש שלכם הוא דני."
+  ]
+ }
+}

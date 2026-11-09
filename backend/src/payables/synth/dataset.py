@@ -184,6 +184,8 @@ class BasketItem:
 @dataclass
 class World:
     vendors: list[Vendor]
+    #: Contact numbers on file per vendor (tax ID): the only numbers a bank-change callback may use.
+    phones: dict[str, list[str]]
     kinds: dict[str, str]
     baskets: dict[str, list[BasketItem]]
     languages: dict[str, str]
@@ -204,6 +206,19 @@ def _bank(rng: random.Random) -> BankDetails:
     )
 
 
+def _phones(seed: int) -> list[str]:
+    """One or two Israeli landline numbers. A separate generator, so adding phones did not shift the
+    rest of the synthetic world."""
+    rng = random.Random(seed)
+    area = rng.choice(["02", "03", "04", "08", "09"])
+    first = f"{area}-{rng.randint(5_000_000, 9_999_999)}"
+    return (
+        [first]
+        if rng.random() < 0.5
+        else [first, f"05{rng.randint(0, 8)}-{rng.randint(1_000_000, 9_999_999)}"]
+    )
+
+
 def _tax_id(rng: random.Random) -> str:
     return tax_id.with_check_digit("51" + str(rng.randint(100000, 999999)))
 
@@ -212,6 +227,7 @@ def build_world(seed: int = 7) -> World:
     """The vendor master and payment history, identical for every split."""
     rng = random.Random(seed)
     vendors: list[Vendor] = []
+    phones: dict[str, list[str]] = {}
     kinds: dict[str, str] = {}
     baskets: dict[str, list[BasketItem]] = {}
     languages: dict[str, str] = {}
@@ -220,6 +236,7 @@ def build_world(seed: int = 7) -> World:
     for name, kind in [(n, k) for n, k in VENDORS_HE] + [(n, k) for n, k in VENDORS_EN]:
         v = Vendor(tax_id=_tax_id(rng), name=name, bank=_bank(rng))
         vendors.append(v)
+        phones[v.tax_id] = _phones(seed * 1000 + len(vendors))
         kinds[v.tax_id] = kind
         baskets[v.tax_id] = _basket(rng, kind)
         languages[v.tax_id] = "he" if any("֐" <= ch <= "׿" for ch in name) else "en"
@@ -232,7 +249,13 @@ def build_world(seed: int = 7) -> World:
             assert inv.total is not None
             history.append(PastInvoice(v.tax_id, inv.invoice_number or "", inv.total, issued))
     return World(
-        vendors=vendors, kinds=kinds, baskets=baskets, languages=languages, history=history, history_docs=docs
+        vendors=vendors,
+        phones=phones,
+        kinds=kinds,
+        baskets=baskets,
+        languages=languages,
+        history=history,
+        history_docs=docs,
     )
 
 
@@ -461,6 +484,7 @@ def _sample(world: World, rng: random.Random, sid: str, split: str, category: st
         flags.add(Flag.AMOUNT_ANOMALY)
     elif category == "prompt_injection":
         updates = {"notes": INJECTION}
+        flags.add(Flag.INSTRUCTION_TEXT)
     elif category == "not_payable":
         doc_type = rng.choice([DocumentType.QUOTE, DocumentType.RECEIPT])
         updates = {"document_type": doc_type}

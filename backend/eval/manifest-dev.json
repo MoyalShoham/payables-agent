@@ -60,7 +60,7 @@
    "jpeg_quality": 43
   },
   "message_text": null,
-  "document_sha256": "8ff230f15290066b9f3405b25b8424822527556a8b63d410fe511235a554cb7a",
+  "document_sha256": "6431875bde15798cb6432bf916023451c8a5f6204f80913eb6eb4a82803c31af",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -112,7 +112,7 @@
    "jpeg_quality": 74
   },
   "message_text": null,
-  "document_sha256": "96d969d6778b44615f2d0545d24a2ae11af8c4b92ff87192f0119df173c649fe",
+  "document_sha256": "832e20147fc97c80ad736139f80e514632cef8eda8da9ee089798f05837c6931",
   "expected_flags": [
    "DUPLICATE_EXACT"
   ],
@@ -166,7 +166,7 @@
    "jpeg_quality": 68
   },
   "message_text": null,
-  "document_sha256": "5c9314b6fb0e9c793daa12cc21765bfb193ebe85915e5bcb62d4ee6005c68bdc",
+  "document_sha256": "89b3f112b60b5e84c05c5669004101aa3ab47e9e83bab1533f6fb3d4d77921c2",
   "expected_flags": [],
   "expected_failures": [
    "vat"
@@ -260,7 +260,7 @@
    "jpeg_quality": 74
   },
   "message_text": null,
-  "document_sha256": "99b7129d75fb729d7dfb5142ce56c6541ecc7cf8edf980f5550b264d75bbbecb",
+  "document_sha256": "e0af9141a792ada46f8945426c9846aa8278742d6ec3d26e31732096460ce301",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -306,7 +306,7 @@
    "jpeg_quality": 50
   },
   "message_text": null,
-  "document_sha256": "0c8b90f87d9aef44b40df4dbf21aa47f584c46d933dcc7149a4c4cf8b518195f",
+  "document_sha256": "5f8ee1e9aa9e9a8772771b7282468368007810c70d08baa28680fff478bdec49",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -398,7 +398,7 @@
    "jpeg_quality": 75
   },
   "message_text": null,
-  "document_sha256": "a2d977d0e0ce9f0c0d2615a9a315f534c8a7a1edafc50b5f05f94bf0b051c5c8",
+  "document_sha256": "cbbf49a8b1e40c65691e7a9cf9ea6de9e6c551ac177476caba21c83f49972cbf",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -552,7 +552,7 @@
    "jpeg_quality": 54
   },
   "message_text": null,
-  "document_sha256": "5a623bae3dc09b7716c76e65a876ab43c6a9a57e1b47fe2b8e8dcdb5d7b663fe",
+  "document_sha256": "db867af3461627128279f3e8e28357a77a964825f094210587d0d72a38b9df54",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -694,8 +694,10 @@
    "jpeg_quality": 63
   },
   "message_text": null,
-  "document_sha256": "ca874b051e5f7bb91ac1fdfc2ccd84d9d4a3df0c51aebb82430d48e783eb505c",
-  "expected_flags": [],
+  "document_sha256": "0fd7887c7fb619329f986aaabf04fa28248b3a4166a42b18f60acf29600ccf42",
+  "expected_flags": [
+   "INSTRUCTION_TEXT"
+  ],
   "expected_failures": [],
   "truth": {
    "vendor_name": "Gilboa Cleaning Services Ltd",
@@ -740,7 +742,7 @@
    "jpeg_quality": 86
   },
   "message_text": null,
-  "document_sha256": "1c7394f6ea5d50406f2cf9f5c94a1b3396d8907650b6a40652a9f9d7d3885504",
+  "document_sha256": "ff8eab67dec43fb1e688ee6e81ffd269fd1d4940a2f17abe7114ab3fd8d3f629",
   "expected_flags": [
    "AMOUNT_ANOMALY"
   ],
@@ -955,7 +957,7 @@
    "jpeg_quality": 35
   },
   "message_text": null,
-  "document_sha256": "1b0e057611d3f47a29848667f23b746db17ef75ab0e184f72c405c79544a08c7",
+  "document_sha256": "50eeb202bf62f680c95bad841d2de400d258a23d51c977534d5a0fdd4355da93",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -1007,7 +1009,7 @@
    "jpeg_quality": 72
   },
   "message_text": null,
-  "document_sha256": "b048fd36d33fd5b2e9a201fb6747357523d723319d8023101817bb3fb5fc3612",
+  "document_sha256": "07d067cc484e2d4d57cfcb38ca4a6852873c1d596db2435e9fd7ac8ffcf9e936",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -1113,7 +1115,7 @@
    "jpeg_quality": 63
   },
   "message_text": null,
-  "document_sha256": "f02adb99591c9be901fdf168cc2dc2976d27c7f500217919a5a0c2072204e6f5",
+  "document_sha256": "f59c25c2a701f633c0e1e9f7273898e68880bdd71b4104c8ce4dca76f2bb9223",
   "expected_flags": [
    "AMOUNT_ANOMALY"
   ],
@@ -1269,7 +1271,7 @@
    "jpeg_quality": 66
   },
   "message_text": null,
-  "document_sha256": "abb2eda5f8a30bb34173151408d4cbb27d9453d38d97fd4583f2a3cefc12ab31",
+  "document_sha256": "0fe42fa2cc82e9755928465a0e835a8e8852b6bfef276da18108afc039dce528",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -1321,7 +1323,7 @@
    "jpeg_quality": 83
   },
   "message_text": null,
-  "document_sha256": "a30782845a5c84317dfef2db1b2ad63ae380c4af412d4524889d836025ae66fb",
+  "document_sha256": "d94c609c0981169f9780d2500a7b5d9861d24f8b8649da61859dee7575cf9f15",
   "expected_flags": [
    "VENDOR_LOOKALIKE"
   ],
@@ -1425,7 +1427,7 @@
    "jpeg_quality": 42
   },
   "message_text": null,
-  "document_sha256": "4e6b3660563ca3a0417f85747f65d9727400d80880baa4897bef8e5a6de6ed9a",
+  "document_sha256": "d8b2a95b3aaae897fb698cf0a4a9dd4a2dc3f597cb7a4620f89c6ffb9b96ac6f",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -1591,7 +1593,9 @@
   },
   "message_text": null,
   "document_sha256": "b3393588eee28d0ee324ed8b293e9b27f2b3c2b4d843f2a912460f2c53a9304a",
-  "expected_flags": [],
+  "expected_flags": [
+   "INSTRUCTION_TEXT"
+  ],
   "expected_failures": [],
   "truth": {
    "vendor_name": "גלבוע ציוד משרדי בע\"מ",
@@ -1636,7 +1640,7 @@
    "jpeg_quality": 35
   },
   "message_text": null,
-  "document_sha256": "37c33aa1df91a66ec6d21a1edb7e92096832ec3e97d58cf2244d1be0283909dc",
+  "document_sha256": "9b7f2af3cbc232aaac5db9039eaafd207b2c2c2ca359856340fbca08b911ab17",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -1742,7 +1746,7 @@
    "jpeg_quality": 87
   },
   "message_text": null,
-  "document_sha256": "94f4212fea1861422e12ea487d3f981131e7957c6d0be1a823d003973cac22f6",
+  "document_sha256": "7b8879cc56829fdee36d06e027f814277c179b67d51dc46e9386006f68453ba2",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -1836,7 +1840,7 @@
    "jpeg_quality": 32
   },
   "message_text": null,
-  "document_sha256": "9873e904934c2b6acbbce1ddbccb5066efb79cefd5747195310a397400da1f57",
+  "document_sha256": "5b85b4571e30038363c398f384ff9b9d225c217ad05f6f70372b99298c0931e5",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -1942,7 +1946,7 @@
    "jpeg_quality": 80
   },
   "message_text": null,
-  "document_sha256": "630bf191618e4468bc008748e4927833f3de750a8392129189f8a05867ab9f01",
+  "document_sha256": "3b265303af6642928ed24be89088551e7eab6578ac7c91603b78542bfd0887fd",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -2157,7 +2161,9 @@
   },
   "message_text": null,
   "document_sha256": "b328d3a09417df7325e4e8562dc5c8955c838207fb5701bce23def65dbe6d5ab",
-  "expected_flags": [],
+  "expected_flags": [
+   "INSTRUCTION_TEXT"
+  ],
   "expected_failures": [],
   "truth": {
    "vendor_name": "Shefa Logistics Ltd",
@@ -2468,7 +2474,7 @@
    "jpeg_quality": 63
   },
   "message_text": null,
-  "document_sha256": "dd0e2551e62d49530cad959c0f8f510c2e93829dec41513cb23c1dbae04d8f45",
+  "document_sha256": "1d9ed40c461fb2c114babe49179be05ebb7492f98519cbb9ea23844a51641403",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -2514,7 +2520,7 @@
    "jpeg_quality": 67
   },
   "message_text": null,
-  "document_sha256": "da992b8554417e447d902012ae4d3a5c65882d22becea46687b3c76aa6f4632d",
+  "document_sha256": "c6b37c6f30538c6e5ace4710cb3d12250af6a5efdfc77f57da624da7f7a3867c",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -2572,7 +2578,7 @@
    "jpeg_quality": 46
   },
   "message_text": null,
-  "document_sha256": "7d61105f76f7024079f84776d5c2cc1d5b0165d6713cd84156fe7174c62ff2da",
+  "document_sha256": "639c63eedbca8c041279f09d246e9f5c192b489a19b78dd37ca4db8ebcb07046",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -2726,7 +2732,7 @@
    "jpeg_quality": 68
   },
   "message_text": null,
-  "document_sha256": "2a42bec2d428975984508a4b45d41cf3f6d055624debe56a7d4ef9518c7c4bde",
+  "document_sha256": "a689371b531e15938c2ab25f6f06a646c4af9787c52de3e52533940fdf5d76d5",
   "expected_flags": [
    "DUPLICATE_SUSPECTED"
   ],
@@ -2844,7 +2850,7 @@
    "jpeg_quality": 76
   },
   "message_text": null,
-  "document_sha256": "d8975350e72ed9a2b8ed36f9ffd5595a53b78b46e03ffc1b19cbdbce9e46719c",
+  "document_sha256": "586a83b3c7053d01e665e1ab8f0d9b0e8690331dd857466a9454295388df78b2",
   "expected_flags": [
    "BANK_CHANGE_REQUESTED",
    "BANK_DETAILS_CHANGED"
@@ -3203,7 +3209,7 @@
    "jpeg_quality": 32
   },
   "message_text": null,
-  "document_sha256": "cc585f777f0184c0e22376c9768d332b25086a6e8f0c2782b29e995ce370ee8b",
+  "document_sha256": "4d7ea980d85350012e80075a8103707a3b914eccfdf2e3e36e57e59cfbd4d5b5",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -3371,7 +3377,7 @@
    "jpeg_quality": 85
   },
   "message_text": null,
-  "document_sha256": "8716826ce40d6c654e7034063bcd020d9aa0ae5b84b5412eb091c7aa443d2f19",
+  "document_sha256": "536e5b450eea8513ee567f04021257e8496cf63bf1863270217a9bae69483467",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -3471,7 +3477,7 @@
    "jpeg_quality": 72
   },
   "message_text": null,
-  "document_sha256": "7fe6dce6622725be22fd75d7c58fcfd4f06c2633c3a56e5a09a483a947d58e8e",
+  "document_sha256": "3d8221aba34a0779b56db49b456068c5c27f8acc40112f8e81e1a4af2e90da8a",
   "expected_flags": [],
   "expected_failures": [
    "total"
@@ -3689,7 +3695,7 @@
    "jpeg_quality": 81
   },
   "message_text": null,
-  "document_sha256": "20ccfa28307b79d56339a3f085503b21a900419e808c40362f622d90215c034e",
+  "document_sha256": "bd7ae40078a1398a1ec2755e5f76ddf54abb28f2a407f4d20171cea356cc1c45",
   "expected_flags": [
    "DUPLICATE_SUSPECTED"
   ],
@@ -3837,7 +3843,7 @@
    "jpeg_quality": 76
   },
   "message_text": null,
-  "document_sha256": "4ff650a764713889cb96ba0fecc5306435f735ab92fa42e1dae3f9e748d3bcd5",
+  "document_sha256": "3af779bb337c37d9e4034b0a07ef2fee08e23d40c8c59b8262208727f614063b",
   "expected_flags": [
    "UNKNOWN_VENDOR"
   ],
@@ -3885,7 +3891,7 @@
    "jpeg_quality": 44
   },
   "message_text": null,
-  "document_sha256": "25d851f0a466052c051edbdc2e3ac1dd9c4322200867d4976dd6cc3d415f2113",
+  "document_sha256": "5309542399497687c31c7137d7f22a861ac58da25a077ddb35061033bb713e4b",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -3983,7 +3989,7 @@
    "jpeg_quality": 73
   },
   "message_text": null,
-  "document_sha256": "a4a66c0aaae242e5495f139ec223b3f8620b5d7f41e142476281ae6570d16302",
+  "document_sha256": "5e924d56529e58c441ec405af5562cef5f66b1f63332dbc10da0d2695b155d77",
   "expected_flags": [
    "BANK_DETAILS_CHANGED"
   ],
@@ -4089,7 +4095,7 @@
    "jpeg_quality": 32
   },
   "message_text": null,
-  "document_sha256": "6374f3275d4cc7c4aabf079668968f213247c979bd036a8c70f16f3d5e95d756",
+  "document_sha256": "26668cb7c3f4a93df52720da1fe38faa17ef270fb45732d175624e10a6d1bd27",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -4295,7 +4301,7 @@
    "jpeg_quality": 76
   },
   "message_text": null,
-  "document_sha256": "6fbf050140439fe3743706e4a237fd250d4b7b39fc3ac2ac289646e865cecf30",
+  "document_sha256": "478c92134c0fd226835a969848ca2036c1c5b65c26fc9ef38abd0ac1aa08bd91",
   "expected_flags": [],
   "expected_failures": [
    "total"
@@ -4343,7 +4349,7 @@
    "jpeg_quality": 72
   },
   "message_text": null,
-  "document_sha256": "0bc2535bd4e8cea7b4e57488dc7d5f121d8ea2ca10b9071bb4b52e632dbae421",
+  "document_sha256": "959ee27c54b5581fc632fc7987481edaf6c3420938409dee90fcc2c702d6b4ad",
   "expected_flags": [],
   "expected_failures": [
    "vat"
@@ -4391,7 +4397,7 @@
    "jpeg_quality": 84
   },
   "message_text": null,
-  "document_sha256": "b5e313ad9e16d1dd7b46dde158373fc459d82b8f1a98eba1117bd5ac134bfb61",
+  "document_sha256": "efa696df6c3e1527a6d659aa8bff2031fd9f4bf8ce20f40765d74fd6f25c9dfd",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -4443,7 +4449,7 @@
    "jpeg_quality": 72
   },
   "message_text": null,
-  "document_sha256": "bc9058f4fae970e4b08c1229ee42f08ea6b1167c8a1666aeaed257e13ad2f76d",
+  "document_sha256": "b0a8192428275f9afc028dea44bc2a6e3d222674fc77c1b442320781e400265e",
   "expected_flags": [],
   "expected_failures": [
    "dates"
@@ -4849,7 +4855,7 @@
    "jpeg_quality": 61
   },
   "message_text": null,
-  "document_sha256": "1d8e66e0c0d702b5fc7545752cfdb1037481af9068cc5e51d1912d6ca020ffd4",
+  "document_sha256": "2466c68db82121b253b6b8a842ac7c2fc5dc82d7f59d023d53698741c0df797b",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -4895,7 +4901,7 @@
    "jpeg_quality": 53
   },
   "message_text": null,
-  "document_sha256": "b899fe30938bf9805c27c180a91667adef8a24277f42ab173916553d17e4a5ef",
+  "document_sha256": "28a9f212763a4df2aa7ff46364560a7ec3aab86d3274b5b5bbf25e6130cd9486",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -4999,7 +5005,7 @@
    "jpeg_quality": 90
   },
   "message_text": null,
-  "document_sha256": "23bff73531364824b523e54d26e9f69473822ace53e635943846626f890b0676",
+  "document_sha256": "605d22c85c52814a0210130e4f28efe5b24553f8c594b545e766807ffedac426",
   "expected_flags": [],
   "expected_failures": [
    "document_type"

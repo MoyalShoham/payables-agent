@@ -106,7 +106,7 @@
    "jpeg_quality": 65
   },
   "message_text": null,
-  "document_sha256": "6264fb2253b28055635b69689e62e992203534243e9d643100a3b96f51e55bc8",
+  "document_sha256": "b427639abbc829f80440cf6f68f35eadbe982278844bff63822f18a8fcd219a5",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -152,7 +152,7 @@
    "jpeg_quality": 73
   },
   "message_text": null,
-  "document_sha256": "2d46277585779f6c3bb7e1581486b646887226c1ec0d4b1a84e9334f0a058835",
+  "document_sha256": "b8d3ee39b891ef58388462ea651d3c16bd5293a198e5739a8c73254b0699e38d",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -198,7 +198,7 @@
    "jpeg_quality": 62
   },
   "message_text": null,
-  "document_sha256": "b0e9f0792f51b488a6753d02ad9993a0cf2d4298cb931ca1a5bcb4da4a2d5985",
+  "document_sha256": "dc9082e79d033b151e7590efc8535ab3563eb196a0236d70c7c6141e1cecb1ce",
   "expected_flags": [
    "UNKNOWN_VENDOR"
   ],
@@ -504,7 +504,7 @@
    "jpeg_quality": 89
   },
   "message_text": null,
-  "document_sha256": "72ba64bd322b5c340024e4dfdc23a7a4f3219004c45daa705aa11c82f9485aea",
+  "document_sha256": "e349f743393fb72ba4a37bca099617665e7c920537ce3a608551f9aaa261349e",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -556,7 +556,7 @@
    "jpeg_quality": 33
   },
   "message_text": null,
-  "document_sha256": "dac359cbf2de5790e9f07e68915728995a83272562af4b09f928481dadd5f427",
+  "document_sha256": "b3380e4e0572ef86600a4fa2287d203cc26a5dde68a3e46c1d5349f23b44c741",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -756,7 +756,7 @@
    "jpeg_quality": 52
   },
   "message_text": null,
-  "document_sha256": "258611584e85432573ee099efec94f069f96b369bdf6a2850e8261647e22a312",
+  "document_sha256": "44f04f34e58f725135e5ce2c0733699ab3420eb2d5e258d0a9b0d4294e3e90f8",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -860,7 +860,7 @@
    "jpeg_quality": 77
   },
   "message_text": null,
-  "document_sha256": "c168f9e1255ca202eda97326f86c229d32802b38e65dbd227502258ebab42af9",
+  "document_sha256": "c095652f682f25ea47a39e6c67f959f1ee409a2d4cd89029c77c93dbfee4fb35",
   "expected_flags": [
    "UNKNOWN_VENDOR"
   ],
@@ -914,7 +914,7 @@
    "jpeg_quality": 88
   },
   "message_text": "שלום, מצורפת חשבונית 46797. לתשומת לבכם: עדכון פרטי חשבון הבנק שלנו, נא להעביר את התשלום לחשבון החדש. תודה",
-  "document_sha256": "fd53d19888137f2d773a09ad5f7ce7fa220f6022dcfcd58630afcb42a63f3e0f",
+  "document_sha256": "2fb8bca82451d2a494b79c3920fcd83e7db3cb8cb8160c9aae77ef83464d8b24",
   "expected_flags": [
    "BANK_CHANGE_REQUESTED"
   ],
@@ -1022,7 +1022,7 @@
    "jpeg_quality": 49
   },
   "message_text": null,
-  "document_sha256": "69c117cd6200db8104a03833b4d2ef91e1220e08864d81edbaa9f37a9c6b66ac",
+  "document_sha256": "297eb482a987ddaee3720e3c7941106e93df58bbcfb4e94d203031ae07c82625",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -1281,7 +1281,7 @@
    "jpeg_quality": 70
   },
   "message_text": null,
-  "document_sha256": "e76c32f4f0c903cfb66d03c5bb3c955c9d7125f68b9eacf5c146af78a178227f",
+  "document_sha256": "1d56660da2a22d7fd1049d75dbdad0a90fdf9667fe59d8de489c437001822fb8",
   "expected_flags": [
    "VENDOR_LOOKALIKE"
   ],
@@ -1329,7 +1329,7 @@
    "jpeg_quality": 83
   },
   "message_text": null,
-  "document_sha256": "41a93dad10072750b895083acd2b4a322546507152492a6a446ee52245029d18",
+  "document_sha256": "e6bf7bde8750968d7b2a33ed76a7137ff28685425a4a6e65a0c1c41af2925297",
   "expected_flags": [
    "DUPLICATE_SUSPECTED"
   ],
@@ -1767,7 +1767,7 @@
    "jpeg_quality": 69
   },
   "message_text": "שלום, מצורפת חשבונית 83552. לתשומת לבכם: עדכון פרטי חשבון הבנק שלנו, נא להעביר את התשלום לחשבון החדש. תודה",
-  "document_sha256": "caccf49a8627d1c14ed20fb4b969f2ee86a010baed0d194ca116641864a5a83f",
+  "document_sha256": "a801ac1c04dd03e0c32f198a6b45c268e1cdc57a751ed4901f65ce7e03fe7578",
   "expected_flags": [
    "BANK_CHANGE_REQUESTED"
   ],
@@ -1969,7 +1969,7 @@
    "jpeg_quality": 35
   },
   "message_text": null,
-  "document_sha256": "ef42be7a90a8ee261ea2d9d266e138c8ef132fbb2a898acdbc61108868aadd18",
+  "document_sha256": "4590412414f447f9306853eb2d0a2e4c441173bae301332a45fea3651908a7ca",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -2063,7 +2063,7 @@
    "jpeg_quality": 42
   },
   "message_text": null,
-  "document_sha256": "41cb6fa8eec8f18ad9a011e7ed22373cdca3a414cd2dd2c4175516c86533e678",
+  "document_sha256": "b20b98bd6248c369067f3eb093d4bee1779feb182b495f7641337459f312b941",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -2109,7 +2109,7 @@
    "jpeg_quality": 60
   },
   "message_text": null,
-  "document_sha256": "4e83ac6a583fdb406f15bb0a6f89a8f4ff1f479d9de7a74083bc87c48d5b49ae",
+  "document_sha256": "7c16116a4cd529f882ae88f6b695cfa7af6fdf2a3f92e712217df366664a874d",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -2318,7 +2318,9 @@
   },
   "message_text": null,
   "document_sha256": "554e584f2873ccb294910fb609e3e682277c4060bdff700d29ae4c1b4b308a32",
-  "expected_flags": [],
+  "expected_flags": [
+   "INSTRUCTION_TEXT"
+  ],
   "expected_failures": [],
   "truth": {
    "vendor_name": "תמר הסעות ותיירות בע\"מ",
@@ -2582,7 +2584,7 @@
    "jpeg_quality": 81
   },
   "message_text": null,
-  "document_sha256": "8f640ece668ac82ad9e166495a58636c6a6873963f8ad40043898838f85b14f3",
+  "document_sha256": "a756006fdaafb8853696661898a6c04754341189338144e9c228a822d702af04",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -2692,7 +2694,7 @@
    "jpeg_quality": 90
   },
   "message_text": null,
-  "document_sha256": "99185e04384cdddb833e97ad2c28fa84dea5762c45760e5b89ab4251984035fe",
+  "document_sha256": "60ad510d78bd3ff3471698414c23105297f95f9d0c480738fab65520a48a4e9c",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -2738,7 +2740,7 @@
    "jpeg_quality": 35
   },
   "message_text": null,
-  "document_sha256": "04cd80ea34b895da3542ba669fa4766c13b87f23663fd02310bde868dca54eb7",
+  "document_sha256": "d757225a3ff25393b9195a62325ec8b4835ce5a86341311365a682c32d42eab7",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -2784,7 +2786,7 @@
    "jpeg_quality": 76
   },
   "message_text": null,
-  "document_sha256": "50b005a34d80ae11f01e8c9142e90426d70b13d7a34c0dacefceab7c4174d03d",
+  "document_sha256": "ac70bf1be4e55af73fe8017310215210422173e8e9713ddc540d105466b3040e",
   "expected_flags": [],
   "expected_failures": [
    "dates"
@@ -3086,7 +3088,7 @@
    "jpeg_quality": 38
   },
   "message_text": null,
-  "document_sha256": "fd73a7222a0dac723cbf276d75d17fa6cfb03dbe2bf6905c7ea4c6bc8eace9c3",
+  "document_sha256": "e08a4453a3ba6bd6bbf07e7e3f0e6228a84c1af0564ab8e72b7e4193392fb7db",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -3184,7 +3186,7 @@
    "jpeg_quality": 55
   },
   "message_text": null,
-  "document_sha256": "957f37b4029288a397d8ce49463d63939b60b747ccd26ca324b5ce9567da2f7a",
+  "document_sha256": "c027f80a0d73217590eb5f591e7b1c24cae14377e4078bb76357943edb2cd84b",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -3376,7 +3378,7 @@
    "jpeg_quality": 69
   },
   "message_text": null,
-  "document_sha256": "214d212d9919e3eebcc8ea96db912c4460b96ffe575fd2637d61b02b7dc9e06b",
+  "document_sha256": "5c2d6f0c689fcec04301ed7e75cdbf257568213d4e864350bdac0063b05593c0",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -3428,7 +3430,7 @@
    "jpeg_quality": 50
   },
   "message_text": null,
-  "document_sha256": "cd0b9b3873fab49f8be61eb448dd99af844952b60c03e3b65235b19c8bf65712",
+  "document_sha256": "ab03ba330e57d3cfd774074dd4cdfdad4e45b256817d907c4cc04306d89b8eee",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -3520,7 +3522,7 @@
    "jpeg_quality": 88
   },
   "message_text": null,
-  "document_sha256": "99e268ad584f5a361d2ac81d2040b97f40df862ae2290648161612d24394ef2a",
+  "document_sha256": "f4c4b29e5da9516c454b615389ed427a81c7905b5dc568e698338267c1b833b4",
   "expected_flags": [
    "UNKNOWN_VENDOR"
   ],
@@ -3568,7 +3570,7 @@
    "jpeg_quality": 67
   },
   "message_text": null,
-  "document_sha256": "1a11189c9031c1a8f093ddbd3942b110ecd1f08d69a77fd62a1a1e402d4a3adb",
+  "document_sha256": "4b5551ee3eed633c9d782e80206eae5e91e927e4c03a14c9826f0af7d32828c1",
   "expected_flags": [],
   "expected_failures": [
    "vat"
@@ -3622,7 +3624,7 @@
    "jpeg_quality": 78
   },
   "message_text": null,
-  "document_sha256": "e4f5d18b607969842a0f07703e75e67e2279300987fa969496db058724c8b8f8",
+  "document_sha256": "6b7d9b132fb69f81d97e8e2efdc737e49744705a658003624a0190bf207e3aea",
   "expected_flags": [],
   "expected_failures": [
    "line_items_sum"
@@ -3728,8 +3730,10 @@
    "jpeg_quality": 72
   },
   "message_text": null,
-  "document_sha256": "f7be6e510abdb8c1a104683979b632b7b23e415164c0be9cc3f7ada38c8ff7b1",
-  "expected_flags": [],
+  "document_sha256": "6ada809b3eddbc6daae85fe38bcaf6fabc573779d5899095c5bde559c98e6470",
+  "expected_flags": [
+   "INSTRUCTION_TEXT"
+  ],
   "expected_failures": [],
   "truth": {
    "vendor_name": "ים סוף שילוח בינלאומי בע\"מ",
@@ -3882,7 +3886,7 @@
    "jpeg_quality": 66
   },
   "message_text": null,
-  "document_sha256": "f95fd183c1cc402eae05c164d40e0c9ed6da7cc003a59fd0d5db79763655cfaf",
+  "document_sha256": "d896c3106ca024ed197d3e8d88a4a2e7a4779b4e1537d965285d2eecdd208bf0",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -3928,7 +3932,7 @@
    "jpeg_quality": 87
   },
   "message_text": null,
-  "document_sha256": "850dd83325c35fd96fbabe57fad86f55e5fd90dc8ff326ceb0420751e5019f92",
+  "document_sha256": "f757d215f8949c79e41af9dc0c9cdbe4a48979f18a6acbb872a758aa77046074",
   "expected_flags": [],
   "expected_failures": [
    "line_items_sum"
@@ -3982,7 +3986,7 @@
    "jpeg_quality": 63
   },
   "message_text": null,
-  "document_sha256": "3f0a979fdd2328850a05a75eaf7c4dbeae44efddd6fb2a3423c71bb1f62b09f1",
+  "document_sha256": "cf5d1ddc8f0b4458b79601abbeb24f3af15e325059cf4f6534c81389db66cd2b",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -4136,7 +4140,7 @@
    "jpeg_quality": 86
   },
   "message_text": null,
-  "document_sha256": "84e5e38b0bd705f85d7c56399ba06fb131f8c23399d5828c3814ded53808b7e3",
+  "document_sha256": "7fab3c35ea112fc6e322b3e3b3d18b11e419240362bdb0102f34b6c555f33c9e",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -4242,7 +4246,7 @@
    "jpeg_quality": 81
   },
   "message_text": null,
-  "document_sha256": "b66572551be12cf05c3fdc8e07734d3705a0101061b825a669496d1096f5a01d",
+  "document_sha256": "0736f3a537d64d8bd3f443c7d3155d127bd2eb4f99e051c1c94f23dae0559fa4",
   "expected_flags": [
    "VENDOR_LOOKALIKE"
   ],
@@ -4341,7 +4345,7 @@
    "jpeg_quality": 88
   },
   "message_text": null,
-  "document_sha256": "943152356a3c103469d52b4c22f168fe60bc6dd3ca40895aa3138c0d842a8541",
+  "document_sha256": "1815a97c96f1271bbaf7f67eb8fea10edb6585039b935da7b673363b5601d07c",
   "expected_flags": [],
   "expected_failures": [
    "total"
@@ -4389,7 +4393,7 @@
    "jpeg_quality": 55
   },
   "message_text": null,
-  "document_sha256": "2498b14dcb473db8f68740d2dbe6d9718639c6baed68b17fa33caa9249ac5b33",
+  "document_sha256": "16428c7bb9f86a18c84149f462e5b916604c28bbc1eaf0d34dd8d62178b76e73",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -4435,7 +4439,7 @@
    "jpeg_quality": 71
   },
   "message_text": null,
-  "document_sha256": "8b0585c6e1183354851a335ff683378d4215612fafb407a38d837a582378d8c1",
+  "document_sha256": "f975fae35f54e57f1c794f080a70efcb793876aa318c88c2254df473e99b1f38",
   "expected_flags": [
    "UNKNOWN_VENDOR"
   ],
@@ -4483,7 +4487,7 @@
    "jpeg_quality": 68
   },
   "message_text": null,
-  "document_sha256": "dd64c963f807bc2b59ccc167d7a4b8a9755ef57ae3b9074e9bfde18c3cbdfeb1",
+  "document_sha256": "045c41aeca3d7638eee64a50447687e6f28f492c20bf0de115ce707956ca8bbc",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -4675,7 +4679,7 @@
    "jpeg_quality": 68
   },
   "message_text": null,
-  "document_sha256": "6722187bc147f7265284ca4de56cfd6bbe4a8a74c6d73fb0e2054ce48b707879",
+  "document_sha256": "0263f8c1ced2952615c50b6ee9335a98b006117b846a7b20ff58d038142add40",
   "expected_flags": [
    "AMOUNT_ANOMALY"
   ],
@@ -4729,7 +4733,7 @@
    "jpeg_quality": 43
   },
   "message_text": null,
-  "document_sha256": "ff4456ec179a847ab054305f2f56a2cdf3684a90024781fd64651b5e92b7a47c",
+  "document_sha256": "0aa0d88bc056ae5fcf1c0c4e7054ac62004f4a1faed0886646ccabaa4577aeab",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -4781,7 +4785,7 @@
    "jpeg_quality": 63
   },
   "message_text": null,
-  "document_sha256": "14c3b666431d49465704b0e6e5432c0c59fb93c424ab34a65187a49e05690e9a",
+  "document_sha256": "85bf5e09464bef171bb92e3af0f7c5cfddb42c8283e1eaf4dfa72cd43891d15e",
   "expected_flags": [],
   "expected_failures": [
    "line_items_sum"
@@ -4895,7 +4899,7 @@
    "jpeg_quality": 38
   },
   "message_text": null,
-  "document_sha256": "3002c6ad622404b79fe293df5b36faf3f3159c931083f433267d156325857810",
+  "document_sha256": "b6edd123d6af28cf33e72e74850823f2e5068802b6b89652bd8ada5b8ae4ba03",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -4941,7 +4945,7 @@
    "jpeg_quality": 49
   },
   "message_text": null,
-  "document_sha256": "b6babd3e7dd2fd25a4b10efa997046dd2db929efbb7eee8256ce4b2749c619e3",
+  "document_sha256": "f836cbe17088202aa9a7b497562f3bf06ff654bf6e1f7a4ff1af64aaf9d54168",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -5039,7 +5043,7 @@
    "jpeg_quality": 63
   },
   "message_text": null,
-  "document_sha256": "6ad793cc03bc39e3f59116f0e764063738a2360853529133ae0d16211bfd4686",
+  "document_sha256": "3b72b8f2735bc79d5450a49ac59cdd99c04c6f98889bb56735bb941db8febefd",
   "expected_flags": [
    "BANK_DETAILS_CHANGED"
   ],
@@ -5087,7 +5091,7 @@
    "jpeg_quality": 65
   },
   "message_text": null,
-  "document_sha256": "48105b53a0be1f3f6905329cb80f04153e93ab7e89c324e8d26370835fb24445",
+  "document_sha256": "7e1a7fb11e51f2c9a252cbce5c34ac0de36b57a5c9b804cfb70c26284260a3cd",
   "expected_flags": [
    "DUPLICATE_SUSPECTED"
   ],
@@ -5141,7 +5145,7 @@
    "jpeg_quality": 81
   },
   "message_text": null,
-  "document_sha256": "9376ad1fc0a2901b3217759e55c3661ab7ea232ada64ac533cb1072ac83cdf2a",
+  "document_sha256": "6089c8282ded6828eba8463efdf6b4a160bb8cd2d511e21bcf7c680b8137d32e",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -5193,7 +5197,7 @@
    "jpeg_quality": 45
   },
   "message_text": null,
-  "document_sha256": "5da1127799759743f9fc87994f9eeb68efb6f2b954378b0f1d3e35ed4e920dc6",
+  "document_sha256": "fa958d5d75102a197385be4c2ec1adfbd6f3cd3de835b8cc78992c2db8bfee06",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -5396,7 +5400,7 @@
    "jpeg_quality": 34
   },
   "message_text": null,
-  "document_sha256": "36a7b0edbcab3aaf848abfcb38293812ac2ebb3bbbc3ed1a2106f9b3b3ab0ae9",
+  "document_sha256": "c74536ecb068321f6cb2d9089d7d9506faae1b0f5842fe0fe950467c1dd3c6e4",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -5491,7 +5495,9 @@
   },
   "message_text": null,
   "document_sha256": "3995b13a636d0769c95321ccac3abc71d8f6315cc1b5c19d36ecdb0483a3b40c",
-  "expected_flags": [],
+  "expected_flags": [
+   "INSTRUCTION_TEXT"
+  ],
   "expected_failures": [],
   "truth": {
    "vendor_name": "תבור מחשוב ותקשורת בע\"מ",
@@ -5536,7 +5542,7 @@
    "jpeg_quality": 75
   },
   "message_text": null,
-  "document_sha256": "05d744466ba990253ce253faa0dccbe84cfdafc28f323c927fa052aedb4e5545",
+  "document_sha256": "423ee6ddc82854064553a429d090e2088bc3ffb84b114132d269e2fe3877fef1",
   "expected_flags": [],
   "expected_failures": [
    "dates"
@@ -5808,7 +5814,7 @@
    "jpeg_quality": 42
   },
   "message_text": null,
-  "document_sha256": "a64cd3ed9ea47bdf948cc9da5138adf345630ed40e8c95eb75f9c9e7f6e6cf82",
+  "document_sha256": "3c6b787cb77636b6f8b426a06e93bd38d34ed691487d3f2d7cd9529aeb621e4f",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -5902,7 +5908,7 @@
    "jpeg_quality": 89
   },
   "message_text": null,
-  "document_sha256": "063a62227293bb0138fa5e0f2111cc7eaa49dddb78aedd003d15fcf1c9d456ff",
+  "document_sha256": "7ac1fe31bda07d7e2f9d18521899d63ffcd5f4819a697c4f4a80d77296049d91",
   "expected_flags": [
    "BANK_CHANGE_REQUESTED",
    "BANK_DETAILS_CHANGED"
@@ -5951,8 +5957,10 @@
    "jpeg_quality": 68
   },
   "message_text": null,
-  "document_sha256": "2e7fbde6dca24667eebb81ca913f03171a87293ad3f0e093e79162cae0ad23dd",
-  "expected_flags": [],
+  "document_sha256": "9230bf3284aaca2542de3903729efae2b7e6968648e158dd072bbc2643ac257f",
+  "expected_flags": [
+   "INSTRUCTION_TEXT"
+  ],
   "expected_failures": [],
   "truth": {
    "vendor_name": "Yarden Office Ltd",
@@ -6209,7 +6217,7 @@
    "jpeg_quality": 74
   },
   "message_text": null,
-  "document_sha256": "491b3404195ceabea2d82d138d19a7ad8a5dab0d9b8347922d3762c79c075c49",
+  "document_sha256": "f102b4af7581a63bf3a88e6689b1d72548569943f5e9f5a5f12f4eca751386b6",
   "expected_flags": [],
   "expected_failures": [
    "document_type"
@@ -6425,7 +6433,7 @@
    "jpeg_quality": 81
   },
   "message_text": null,
-  "document_sha256": "15adfb4eaa2f6ec4ed9cc5dc69175718b8ee37c2c46408c5af4f11cf61276293",
+  "document_sha256": "9be813d5d353782deeb8df6472a3f008faacfa8bea0e64c7a09358b5a236fa45",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -6573,7 +6581,7 @@
    "jpeg_quality": 84
   },
   "message_text": null,
-  "document_sha256": "f10ec212d50aad14eb2b7d76039931460fe284d595bd46e771d86ed7bb3a20ee",
+  "document_sha256": "373d74a6eda07bd80d3c2c9673a0f74f8ce11f628c2fd5006a2af1e3b54122f4",
   "expected_flags": [],
   "expected_failures": [
    "line_items_sum"
@@ -6833,7 +6841,7 @@
    "jpeg_quality": 63
   },
   "message_text": null,
-  "document_sha256": "9e109940ff3637db8a26635250e7388a419e0f13250189f44d1982507185aadb",
+  "document_sha256": "9b582ff559e1416e50dff6e481d48ead61f2e63d39234ccfef20e18657870cd8",
   "expected_flags": [
    "VENDOR_LOOKALIKE"
   ],
@@ -6929,7 +6937,7 @@
    "jpeg_quality": 55
   },
   "message_text": null,
-  "document_sha256": "5a96d1cf43f37547b471bf6c6fc5d34874cbb056a7a2e90e9b3e44213f8cc3ea",
+  "document_sha256": "ea9cd04e7b46a599dd393249202ad8daa30ebc162809efa56c73ebab2aa5b69d",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -7029,7 +7037,7 @@
    "jpeg_quality": 39
   },
   "message_text": null,
-  "document_sha256": "708ad5d9bf04a63799b43ba9118cf41ef7567bad4ea6798ce65e2e6d848ea007",
+  "document_sha256": "8bba56ef13fae8816127286562bfe062f0e04467ae19fb6053e23b0ebc44bde1",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -7191,7 +7199,7 @@
    "jpeg_quality": 87
   },
   "message_text": null,
-  "document_sha256": "7785299b4dfee6cad8502fd9e2c3cbd1f8e4e006f72e24089b59fb82c8eb770a",
+  "document_sha256": "482db33ec88b8b2b2cdf369d1f328b83d8e09712c6ee41e667683e1482509874",
   "expected_flags": [],
   "expected_failures": [
    "vat"
@@ -7435,7 +7443,7 @@
    "jpeg_quality": 82
   },
   "message_text": null,
-  "document_sha256": "457b212b53d924533aeb2458cbee843564daee567ed900a7dab044c0f483afa0",
+  "document_sha256": "fa526f93a9a85dd5a6ae402e4a9e5e4ec3b892904c0d8e960adaea4e850ee9df",
   "expected_flags": [
    "UNKNOWN_VENDOR"
   ],
@@ -7647,7 +7655,7 @@
    "jpeg_quality": 67
   },
   "message_text": null,
-  "document_sha256": "2dedc4f455ab81a9072e9b8750dbd276fac1bbba182791ec084f540c587018d6",
+  "document_sha256": "41772c4ebe7ce784652c851d1e1dd7c09b914d96894297de78ce0f28622eafc4",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -7693,7 +7701,7 @@
    "jpeg_quality": 89
   },
   "message_text": "Hello, attached is our invoice 85547. Please note that our bank details have changed; the new account is in the attached letter. Thanks, Accounts",
-  "document_sha256": "5b7e115c1fb227f9769fb9a2640643bc72b80f54436da559b9a3718e18f465ab",
+  "document_sha256": "e335b7b2a28e874441726bc59fe932712b4d03d0f25ad51c84e579b1a9b3ddc0",
   "expected_flags": [
    "BANK_CHANGE_REQUESTED"
   ],
@@ -8050,7 +8058,7 @@
    "jpeg_quality": 45
   },
   "message_text": null,
-  "document_sha256": "284bdf155c62a2b68adb5334a1f5730ef5294b3ed83911000aa46411a1acc10d",
+  "document_sha256": "7f37269b728a64007c15cea02b1b66500bcf36f6ab889edeb466df497c7bc5dd",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -8102,7 +8110,7 @@
    "jpeg_quality": 60
   },
   "message_text": "שלום, מצורפת חשבונית 49176. לתשומת לבכם: עדכון פרטי חשבון הבנק שלנו, נא להעביר את התשלום לחשבון החדש. תודה",
-  "document_sha256": "ca839055049a595b2b9c75aff9086911f2c5703d3a9ce077cdf2391e213fd5d6",
+  "document_sha256": "292fdbdcdd0e515a07ab9c61d4b06f17aeb12c04bc95b3bbee232affe2e78aaa",
   "expected_flags": [
    "BANK_CHANGE_REQUESTED"
   ],
@@ -8150,7 +8158,7 @@
    "jpeg_quality": 75
   },
   "message_text": null,
-  "document_sha256": "e571af341ef4870e38dd0f1820dd2ac7c7ead426160ca63ff3b3e0b75c69844d",
+  "document_sha256": "12a1b44ea1d1907f11bac07ad26243f2138f7b0607b242e241775fbd13979fd5",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -8242,7 +8250,7 @@
    "jpeg_quality": 54
   },
   "message_text": null,
-  "document_sha256": "11c0436e04c045ea834616334cac0fb95515b54f37e49b70c4ed660423f6f80d",
+  "document_sha256": "42b596cb878e89b83a460f366de316f7daf17f2579ad4868abb510be2419b120",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -8446,7 +8454,7 @@
    "jpeg_quality": 89
   },
   "message_text": null,
-  "document_sha256": "895007d7ef7d145d398dbc7a9184037d9a8981d464980f960687c3d9b519957f",
+  "document_sha256": "a2a8242dea9bd53194cf96535d26ee3db0a9fd5f633839dfc37b323d1122b7b6",
   "expected_flags": [
    "DUPLICATE_EXACT"
   ],
@@ -8542,7 +8550,7 @@
    "jpeg_quality": 84
   },
   "message_text": null,
-  "document_sha256": "c8f607f6c37dffb2749434ddc5ef806e63f37723c8896c977c894d9a9f408ef3",
+  "document_sha256": "5837fa51981cd0b0c02f3133c3410ab968d8a9e897daf59200dfe0f8848ac658",
   "expected_flags": [],
   "expected_failures": [
    "vat"
@@ -8590,7 +8598,7 @@
    "jpeg_quality": 34
   },
   "message_text": null,
-  "document_sha256": "210387f82e59dc125363a752fdf2a779d0dcf9cb9fa0150cf5dd9a921a3754f0",
+  "document_sha256": "1317857a3db174315b03a201f7dd8a8b9314502056076695fe85ff71019e3dc1",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -8698,7 +8706,7 @@
    "jpeg_quality": 67
   },
   "message_text": null,
-  "document_sha256": "5a0b938ad598dc98236b62096e53306f3cbbcd6be87f88c57170b52d12906f47",
+  "document_sha256": "2e86239e8df2143f92a258777b24b7c5f5d96cfaa8ace9e570fd7b30cd2926d9",
   "expected_flags": [],
   "expected_failures": [
    "line_items_sum"
@@ -8852,7 +8860,7 @@
    "jpeg_quality": 41
   },
   "message_text": null,
-  "document_sha256": "0ab75f52660196e504323168d95c37b4949181df09a4df162516fbb496407e70",
+  "document_sha256": "66e656b97251583502bedcae3dd374a0c7356c7de3220df7c3edfa35501459d3",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -9056,7 +9064,7 @@
    "jpeg_quality": 69
   },
   "message_text": null,
-  "document_sha256": "837d3cb575a72e5f43b9d26e71508269bf868c369fd00cd49c4cdc87f71d9e39",
+  "document_sha256": "d92fb7072c1e96084595c045cf076e4118612a2edb334d6cc2a886e8abf6738c",
   "expected_flags": [],
   "expected_failures": [
    "vat"
@@ -9514,8 +9522,10 @@
    "jpeg_quality": 74
   },
   "message_text": null,
-  "document_sha256": "a5e5aa5d517d2b564a0c4c9628d8d63d0900856812aef6c43fb322752fa2e402",
-  "expected_flags": [],
+  "document_sha256": "b3bafa7bea9e277fb60e885a32a4500ea5c69c8fa6a435e88ab825b09a06878e",
+  "expected_flags": [
+   "INSTRUCTION_TEXT"
+  ],
   "expected_failures": [],
   "truth": {
    "vendor_name": "Modiin Security Ltd",
@@ -9666,7 +9676,7 @@
    "jpeg_quality": 34
   },
   "message_text": null,
-  "document_sha256": "96edcf6c27e04fe9a5eb3fccb1ed0c2d3271a4d296b5d0cac392698c9ddac248",
+  "document_sha256": "55624e9ad47a20e16ed223929543953ecf8b2b1f6537dacd4f694a575cca9a05",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -9724,7 +9734,7 @@
    "jpeg_quality": 55
   },
   "message_text": null,
-  "document_sha256": "bdb121209c76374db494d344dd08e8e433bc8d00ccc95b88a89e310416597779",
+  "document_sha256": "2c9f7e9f3a618899458e687701b55288fbf12e6d52a8c459a4dba2ff36d5c929",
   "expected_flags": [],
   "expected_failures": [],
   "truth": {
@@ -9782,7 +9792,7 @@
    "jpeg_quality": 70
   },
   "message_text": null,
-  "document_sha256": "d0b00b6ae451081919a09bf203e3dce6984ab7d8cb3b383a8497fd9c1844c358",
+  "document_sha256": "167c994c06a64d6a34e9f932d50eeea303426da0cfe3a87f930e417962e7e92b",
   "expected_flags": [
    "UNKNOWN_VENDOR"
   ],
@@ -9830,8 +9840,10 @@
    "jpeg_quality": 64
   },
   "message_text": null,
-  "document_sha256": "bafb86c8927d1f588f602803fbe04bc89d22483043bf402f0647b7051b109033",
-  "expected_flags": [],
+  "document_sha256": "4940a51b2963542c4df86df6c92c7fa3c1efd41f7ab124f0a871724aa1026fcd",
+  "expected_flags": [
+   "INSTRUCTION_TEXT"
+  ],
   "expected_failures": [],
   "truth": {
    "vendor_name": "Galil Foods Ltd",
@@ -9934,7 +9946,7 @@
    "jpeg_quality": 74
   },
   "message_text": null,
-  "document_sha256": "8af07deccb21a85eeb0a568ca66b409eee5c27a7dd5cef9a3ea9c8a968ea831a",
+  "document_sha256": "9b69606aba649444f89c9d2ceb7220803193d275513b72597d5c211f7608cc25",
   "expected_flags": [],
   "expected_failures": [
    "line_items_sum"
