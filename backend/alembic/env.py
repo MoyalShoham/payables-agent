@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from alembic import context
-from sqlalchemy import engine_from_config, pool
+from sqlalchemy import engine_from_config, pool, text
 
 from payables.config import Settings
 from payables.db import Base
@@ -26,6 +26,10 @@ def run_migrations_online() -> None:
         config.get_section(config.config_ini_section, {}), prefix="sqlalchemy.", poolclass=pool.NullPool
     )
     with connectable.connect() as connection:
+        # Once the owner role exists, new objects belong to it, not to the bootstrap superuser.
+        if connection.execute(text("SELECT 1 FROM pg_roles WHERE rolname = 'payables_owner'")).first():
+            connection.execute(text("SET ROLE payables_owner"))
+        connection.commit()
         context.configure(connection=connection, target_metadata=target_metadata)
         with context.begin_transaction():
             context.run_migrations()
