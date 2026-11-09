@@ -1,2 +1,1 @@
-def hello() -> str:
-    return "Hello from payables!"
+"""payables-agent: prepares vendor-bill payments for human approval. Payments are simulated."""
