@@ -43,11 +43,7 @@ export function DraftView({ id, user, onBack }: { id: number; user: User; onBack
       </header>
       <div className="split">
         <section className="card preview">
-          {draft.document.media_type === 'application/pdf' ? (
-            <iframe title="Invoice document" src={api.documentUrl(draft.document.id)} sandbox="" />
-          ) : (
-            <img alt="Invoice scan" src={api.documentUrl(draft.document.id)} />
-          )}
+          <img alt="Invoice document" src={api.previewUrl(draft.document.id)} />
           <p className="muted">
             {draft.document.filename}
             {draft.document.uploaded_by

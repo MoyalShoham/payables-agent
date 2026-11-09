@@ -7,11 +7,13 @@ sign in at all; it works only through the ingestion process.
 
 from __future__ import annotations
 
+import io
 import time
 from collections import defaultdict
 from collections.abc import Callable, Iterator
 from typing import Annotated, Any
 
+import pypdfium2 as pdfium
 from fastapi import Depends, FastAPI, File, Form, HTTPException, Request, Response, UploadFile
 from fastapi.responses import JSONResponse
 from itsdangerous import BadSignature, SignatureExpired, URLSafeTimedSerializer
@@ -216,8 +218,22 @@ def create_app(service: Payables, settings: Settings) -> FastAPI:
             else {"reference": payment.reference, "amount": str(payment.amount), "simulated": True},
         }
 
+    @app.get("/api/documents/{document_id}/preview")
+    def document_preview(document_id: int, user: Me, s: Db) -> Response:
+        """A PNG of the document. Uploaded PDFs are never handed to the browser to render."""
+        doc = s.get(DocumentRow, document_id)
+        if doc is None:
+            raise HTTPException(404, "no such document")
+        png = preview_png(doc.content, doc.media_type)
+        return Response(
+            png,
+            media_type="image/png",
+            headers={"X-Content-Type-Options": "nosniff", "Cache-Control": "private, no-store"},
+        )
+
     @app.get("/api/documents/{document_id}/content")
     def document_content(document_id: int, user: Me, s: Db) -> Response:
+        """The original file, as a download only, sandboxed in case a browser opens it anyway."""
         doc = s.get(DocumentRow, document_id)
         if doc is None:
             raise HTTPException(404, "no such document")
@@ -226,11 +242,8 @@ def create_app(service: Payables, settings: Settings) -> FastAPI:
             media_type=doc.media_type,
             headers={
                 "X-Content-Type-Options": "nosniff",
-                # Shown in an iframe, but sandboxed: an uploaded PDF cannot run script in our origin.
-                "Content-Security-Policy": (
-                    "sandbox; default-src 'none'; img-src 'self'; style-src 'unsafe-inline'"
-                ),
-                "Content-Disposition": "inline",
+                "Content-Security-Policy": "sandbox; default-src 'none'",
+                "Content-Disposition": f'attachment; filename="document-{doc.id}"',
                 "Cache-Control": "private, no-store",
             },
         )
@@ -313,6 +326,21 @@ def create_app(service: Payables, settings: Settings) -> FastAPI:
         return {"status": "ok"}
 
     return app
+
+
+def preview_png(content: bytes, media_type: str) -> bytes:
+    """First page of a PDF rasterised server-side; images are already normalised PNGs."""
+    if media_type != "application/pdf":
+        return content
+    pdf = pdfium.PdfDocument(content)
+    try:
+        page = pdf[0]
+        image = page.render(scale=1.5).to_pil()
+        out = io.BytesIO()
+        image.save(out, format="PNG")
+        return out.getvalue()
+    finally:
+        pdf.close()
 
 
 def _user(u: User) -> dict[str, Any]:

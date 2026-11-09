@@ -73,4 +73,5 @@ export const api = {
   verifyAudit: () =>
     request<{ intact: boolean; first_broken_entry: number | null }>('/audit/verify'),
   documentUrl: (id: number) => `/api/documents/${id}/content`,
+  previewUrl: (id: number) => `/api/documents/${id}/preview`,
 }

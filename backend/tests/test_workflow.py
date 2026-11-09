@@ -242,7 +242,11 @@ def test_api_guards(env: Env, clean_invoice: ExtractedInvoice) -> None:
     doc_id = client.get(f"/api/drafts/{draft_id}").json()["document"]["id"]
     r = client.get(f"/api/documents/{doc_id}/content")
     assert r.headers["content-security-policy"].startswith("sandbox")
+    assert r.headers["content-disposition"].startswith("attachment")
     assert r.headers["x-content-type-options"] == "nosniff"
+    preview = client.get(f"/api/documents/{doc_id}/preview")
+    assert preview.headers["content-type"] == "image/png"
+    assert preview.content.startswith(b"\x89PNG")
     assert client.post("/api/vendors", json={"tax_id": "123", "name": "x"}, headers=h).status_code == 422
 
 
