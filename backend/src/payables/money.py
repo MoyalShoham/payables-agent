@@ -8,7 +8,8 @@ from decimal import ROUND_HALF_EVEN, Decimal, InvalidOperation
 
 CENT = Decimal("0.01")
 _CURRENCY = re.compile(r"[₪$€]|ILS|NIS|USD|EUR|ש\"?ח", re.IGNORECASE)
-_NUMBER = re.compile(r"^-?\d{1,13}(\.\d{1,4})?$")
+#: Twelve integer digits: the largest amount NUMERIC(14,2) can store is 999,999,999,999.99.
+_NUMBER = re.compile(r"^-?\d{1,12}(\.\d{1,4})?$")
 
 # Israel's standard VAT rate by the date it took effect.
 VAT_RATES: tuple[tuple[date, Decimal], ...] = (
@@ -43,6 +44,14 @@ def parse_amount(text: str) -> Decimal:
     except InvalidOperation as e:  # pragma: no cover - the regex already guarantees a number
         raise ValueError(f"not an amount: {text[:40]!r}") from e
     return -d if negative else d
+
+
+def normalize_currency(value: str | None) -> str:
+    """ISO code for what a document prints: "₪", "NIS", 'ש"ח' are all ILS."""
+    v = (value or "").strip().upper().replace(" ", "")
+    if v in ("", "ILS", "NIS", "₪", 'ש"ח', "ש״ח", "שח", "שקל", "שקלים"):
+        return "ILS"
+    return v[:3]
 
 
 def vat_rate_on(day: date) -> Decimal:

@@ -11,13 +11,13 @@ from enum import StrEnum
 
 from payables.risk import BLOCKING, NEEDS_BANK_VERIFICATION, RiskFlag, Severity, Vendor
 from payables.schemas import BankDetails, ExtractedInvoice
-from payables.validation import Check, Status
+from payables.validation import ARITHMETIC, Check, Status
 
 
 class DraftStatus(StrEnum):
     #: Every check passed and no risk was found; still needs a person to approve.
     READY = "READY"
-    #: Risk flags or warnings; a person must look before approving.
+    #: Risk flags, warnings or an arithmetic check that could not run; a person must look.
     NEEDS_ATTENTION = "NEEDS_ATTENTION"
     #: A check failed or the invoice is a duplicate: it cannot be approved, only rejected.
     BLOCKED = "BLOCKED"
@@ -37,12 +37,15 @@ def build_draft(
 ) -> Draft:
     failures = [c for c in checks if c.status is Status.FAIL]
     warnings = [c for c in checks if c.status is Status.WARN]
+    unchecked = [c for c in checks if c.status is Status.SKIP and c.name in ARITHMETIC]
     blocking = [f for f in flags if f.code in BLOCKING]
     reasoning: list[str] = []
     for c in failures:
         reasoning.append(f"FAILED {c.name}: {c.detail}")
     for f in sorted(flags, key=lambda f: (f.severity is not Severity.HIGH, f.code)):
         reasoning.append(f"{f.severity} {f.code}: {f.detail}")
+    for c in unchecked:
+        reasoning.append(f"Not checked {c.name}: {c.detail}; verify it against the document")
     for c in warnings:
         reasoning.append(f"Note {c.name}: {c.detail}")
     passed = [c.name for c in checks if c.status is Status.PASS]
@@ -55,7 +58,7 @@ def build_draft(
 
     if failures or blocking:
         status = DraftStatus.BLOCKED
-    elif flags or warnings:
+    elif flags or warnings or unchecked:
         status = DraftStatus.NEEDS_ATTENTION
     else:
         status = DraftStatus.READY

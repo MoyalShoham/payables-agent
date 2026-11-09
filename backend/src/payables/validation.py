@@ -1,7 +1,12 @@
 """Checks that do not trust the model: arithmetic, VAT, the tax ID check digit and dates.
 
 Every check is recomputed from the extracted numbers with Decimal arithmetic. A check that cannot run
-because a field is missing is SKIP, not PASS, so a sparse extraction never looks clean.
+because a field is missing is SKIP, not PASS, and a skipped arithmetic check (lines, VAT, total)
+keeps a draft out of READY (see drafting.py), so a sparse extraction never looks clean.
+
+Tolerances are one agora and do not grow with the number of lines: the subtotal is the sum of the
+printed line amounts, VAT is one rounding of the subtotal, and each line is one rounding of
+quantity times unit price.
 """
 
 from __future__ import annotations
@@ -17,6 +22,8 @@ from payables.schemas import DocumentType, ExtractedInvoice
 
 MAX_AGE = timedelta(days=548)  # about 18 months
 MAX_TERMS = timedelta(days=180)
+#: The arithmetic checks: if one of these cannot run, a person has to look.
+ARITHMETIC = frozenset({"line_items_sum", "vat", "total"})
 
 
 class Status(StrEnum):
@@ -36,8 +43,10 @@ class Check:
 def run_checks(inv: ExtractedInvoice, today: date) -> list[Check]:
     return [
         _required_fields(inv),
+        _positive_total(inv),
         _document_type(inv),
         _line_items(inv),
+        _line_math(inv),
         _vat(inv),
         _total(inv),
         _tax_id(inv),
@@ -66,6 +75,16 @@ def _required_fields(inv: ExtractedInvoice) -> Check:
     return Check("required_fields", Status.PASS, "vendor, number, date and total are present")
 
 
+def _positive_total(inv: ExtractedInvoice) -> Check:
+    if inv.total is None:
+        return Check("positive_total", Status.SKIP, "no total")
+    if inv.total <= 0:
+        return Check(
+            "positive_total", Status.FAIL, f"total {inv.total} is not a positive amount (a credit note?)"
+        )
+    return Check("positive_total", Status.PASS, "the total is positive")
+
+
 def _document_type(inv: ExtractedInvoice) -> Check:
     match inv.document_type:
         case DocumentType.TAX_INVOICE:
@@ -86,11 +105,25 @@ def _line_items(inv: ExtractedInvoice) -> Check:
     if not inv.line_items or inv.subtotal is None:
         return Check("line_items_sum", Status.SKIP, "no line items or no subtotal to compare")
     total = money(sum((li.amount for li in inv.line_items), Decimal(0)))
-    # Each line was rounded to the agora on the document; allow that rounding per line.
-    tolerance = CENT * max(1, len(inv.line_items))
-    if abs(total - inv.subtotal) <= tolerance:
+    if abs(total - inv.subtotal) <= CENT:
         return Check("line_items_sum", Status.PASS, f"{len(inv.line_items)} lines sum to {inv.subtotal}")
     return Check("line_items_sum", Status.FAIL, f"lines sum to {total}, subtotal says {inv.subtotal}")
+
+
+def _line_math(inv: ExtractedInvoice) -> Check:
+    priced = [li for li in inv.line_items if li.quantity is not None and li.unit_price is not None]
+    if not priced:
+        return Check("line_math", Status.SKIP, "no line with both a quantity and a unit price")
+    wrong = [
+        f"{li.description[:40]}: {li.quantity} x {li.unit_price} is not {li.amount}"
+        for li in priced
+        if li.quantity is not None
+        and li.unit_price is not None
+        and abs(money(li.quantity * li.unit_price) - li.amount) > CENT
+    ]
+    if wrong:
+        return Check("line_math", Status.FAIL, "; ".join(wrong[:3]))
+    return Check("line_math", Status.PASS, f"quantity x unit price matches on {len(priced)} line(s)")
 
 
 def _vat(inv: ExtractedInvoice) -> Check:
@@ -99,9 +132,15 @@ def _vat(inv: ExtractedInvoice) -> Check:
     rate = vat_rate_on(inv.issue_date)
     if inv.vat_amount == 0:
         return Check("vat", Status.WARN, "no VAT charged: only valid for exempt dealers and foreign vendors")
+    if inv.vat_rate is not None and inv.vat_rate != rate:
+        return Check(
+            "vat",
+            Status.FAIL,
+            f"the invoice prints a VAT rate of {inv.vat_rate:.0%}; "
+            f"the rate on {inv.issue_date} is {rate:.0%}",
+        )
     expected = money(inv.subtotal * rate)
-    tolerance = CENT * max(1, len(inv.line_items))
-    if abs(expected - inv.vat_amount) <= tolerance:
+    if abs(expected - inv.vat_amount) <= CENT:
         return Check("vat", Status.PASS, f"VAT {inv.vat_amount} = {rate:.0%} of {inv.subtotal}")
     return Check(
         "vat",
@@ -146,6 +185,10 @@ def _dates(inv: ExtractedInvoice, today: date) -> Check:
 
 
 def _currency(inv: ExtractedInvoice) -> Check:
-    if inv.currency.upper() in ("ILS", "NIS"):
+    if inv.currency == "ILS":
         return Check("currency", Status.PASS, "ILS")
-    return Check("currency", Status.WARN, f"invoice is in {inv.currency}: payment needs a conversion")
+    # Payments are in shekels and there is no conversion step, so a foreign-currency invoice cannot
+    # be paid as drafted.
+    return Check(
+        "currency", Status.FAIL, f"the invoice is in {inv.currency}; only ILS invoices can be paid here"
+    )
