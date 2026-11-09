@@ -1,0 +1,109 @@
+{
+ "split": "dev",
+ "mode": "oracle (rules on ground truth)",
+ "prompt_version": "2025-11-09.1",
+ "samples": 100,
+ "extraction_failures": 0,
+ "field_accuracy": {
+  "vendor_name": 1.0,
+  "vendor_tax_id": 1.0,
+  "invoice_number": 1.0,
+  "document_type": 1.0,
+  "issue_date": 1.0,
+  "due_date": 1.0,
+  "line_items": 1.0,
+  "subtotal": 1.0,
+  "vat_amount": 1.0,
+  "total": 1.0,
+  "bank": 1.0
+ },
+ "all_key_fields_correct": 1.0,
+ "key_fields_by_render": {
+  "pdf/en": 1.0,
+  "pdf/he": 1.0,
+  "pdf/mixed": 1.0,
+  "scan/en": 1.0,
+  "scan/he": 1.0,
+  "scan/mixed": 1.0
+ },
+ "detection": {
+  "AMOUNT_ANOMALY": {
+   "expected": 4,
+   "found": 3,
+   "rate": 0.75
+  },
+  "BANK_CHANGE_REQUESTED": {
+   "expected": 6,
+   "found": 6,
+   "rate": 1.0
+  },
+  "BANK_DETAILS_CHANGED": {
+   "expected": 8,
+   "found": 8,
+   "rate": 1.0
+  },
+  "DUPLICATE_EXACT": {
+   "expected": 5,
+   "found": 5,
+   "rate": 1.0
+  },
+  "DUPLICATE_SUSPECTED": {
+   "expected": 4,
+   "found": 4,
+   "rate": 1.0
+  },
+  "UNKNOWN_VENDOR": {
+   "expected": 3,
+   "found": 3,
+   "rate": 1.0
+  },
+  "VENDOR_LOOKALIKE": {
+   "expected": 7,
+   "found": 7,
+   "rate": 1.0
+  },
+  "dates": {
+   "expected": 4,
+   "found": 4,
+   "rate": 1.0
+  },
+  "document_type": {
+   "expected": 3,
+   "found": 3,
+   "rate": 1.0
+  },
+  "line_items_sum": {
+   "expected": 5,
+   "found": 5,
+   "rate": 1.0
+  },
+  "tax_id": {
+   "expected": 4,
+   "found": 4,
+   "rate": 1.0
+  },
+  "total": {
+   "expected": 4,
+   "found": 4,
+   "rate": 1.0
+  },
+  "vat": {
+   "expected": 5,
+   "found": 5,
+   "rate": 1.0
+  }
+ },
+ "planted_problem_samples": 55,
+ "planted_problems_not_marked_ready": 0.9818181818181818,
+ "no_problem_samples": 45,
+ "false_alarm_rate": 0.022222222222222223,
+ "unexpected_codes": {
+  "DUPLICATE_SUSPECTED": 2
+ },
+ "prompt_injection_total_kept": "3 of 3",
+ "tokens": {
+  "input": 0,
+  "output": 0,
+  "estimated_usd": 0.0
+ }
+}

@@ -23,6 +23,7 @@ LOOKALIKE_RATIO = 0.85
 NEAR_DUPLICATE_DAYS = 7
 NEAR_DUPLICATE_SHARE = Decimal("0.01")
 ANOMALY_FACTOR = 3.0
+ANOMALY_Z = 3.5
 MIN_HISTORY = 3
 
 _BANK_CHANGE = re.compile(
@@ -167,18 +168,29 @@ def _duplicates(inv: ExtractedInvoice, past: list[PastInvoice]) -> list[RiskFlag
 
 
 def _anomaly(inv: ExtractedInvoice, past: list[PastInvoice]) -> list[RiskFlag]:
+    """Total far above this vendor's usual amounts.
+
+    Distance is measured on log amounts against the median, and the threshold adapts to how much
+    this vendor's invoices usually vary: a robust z-score above ANOMALY_Z (median absolute
+    deviation scaled to a standard deviation), and never closer than ANOMALY_FACTOR times the median.
+    """
     if inv.total is None or inv.total <= 0 or len(past) < MIN_HISTORY:
         return []
-    median = Decimal(statistics.median(p.total for p in past))
-    if median <= 0:
+    logs = [math.log(float(p.total)) for p in past if p.total > 0]
+    if len(logs) < MIN_HISTORY:
         return []
-    ratio = float(inv.total / median)
-    if abs(math.log(ratio)) > math.log(ANOMALY_FACTOR):
+    center = statistics.median(logs)
+    spread = 1.4826 * statistics.median(abs(x - center) for x in logs)
+    threshold = max(math.log(ANOMALY_FACTOR), ANOMALY_Z * spread)
+    distance = math.log(float(inv.total)) - center
+    # Only larger-than-usual totals: overbilling is the risk; a small invoice is not.
+    if distance > threshold:
+        median = Decimal(math.exp(center)).quantize(Decimal("0.01"))
         return [
             RiskFlag(
                 Flag.AMOUNT_ANOMALY,
                 Severity.MEDIUM,
-                f"total {inv.total} is {ratio:.1f}x this vendor's median of {median:.2f} "
+                f"total {inv.total} is {math.exp(distance):.1f}x this vendor's usual {median} "
                 f"over {len(past)} invoices",
             )
         ]

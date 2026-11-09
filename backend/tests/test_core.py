@@ -201,6 +201,10 @@ def test_amount_far_from_the_vendors_history_is_an_anomaly(
     assert Flag.AMOUNT_ANOMALY in codes(big, context)
     few = RiskContext(vendors=context.vendors, history=context.history[:2])
     assert Flag.AMOUNT_ANOMALY not in codes(big, few)
+    small = clean_invoice.model_copy(
+        update={"subtotal": Decimal("100.00"), "vat_amount": Decimal("18.00"), "total": Decimal("118.00")}
+    )
+    assert Flag.AMOUNT_ANOMALY not in codes(small, context)
 
 
 # ---- drafting --------------------------------------------------------------------------------
