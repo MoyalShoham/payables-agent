@@ -40,7 +40,7 @@ GOOD = {
     "vat_rate": "18%",
     "vat_amount": "180.00",
     "total": "1,180.00",
-    "bank": {"bank_name": "לאומי", "bank_code": "10", "branch": "800", "account": "12345678", "iban": None},
+    "bank": {"bank_name": "לאומי", "bank_code": "10", "branch": "800", "account": "12345678", "iban": ""},
     "notes": None,
 }
 
@@ -167,6 +167,39 @@ def test_model_output_becomes_a_validated_invoice() -> None:
     assert inv.line_items[0].quantity == Decimal(10)
     assert inv.bank is not None
     assert inv.bank.fingerprint() == "10-800-12345678"
+    assert inv.bank.iban is None  # "" in the answer: not printed
+
+
+def test_empty_nested_parts_mean_not_printed() -> None:
+    """Inside bank and line_items the schema has no nulls (see the union limit below): the model
+    answers "" for a part that is not printed, and parsing turns it into None."""
+    answer = {
+        **GOOD,
+        "line_items": [{"description": "שירות", "quantity": "", "unit_price": " ", "amount": "500.00"}],
+        "bank": {"bank_name": "", "bank_code": "", "branch": "", "account": "", "iban": ""},
+    }
+    inv = parse(raw(answer))
+    assert inv.line_items[0].quantity is None
+    assert inv.line_items[0].unit_price is None
+    assert inv.bank is None  # nothing printed is no bank block
+
+
+def _unions(node: Any) -> int:
+    """Parameters whose type is a union (anyOf, or a list of types), counted the way the API does."""
+    if isinstance(node, list):
+        return sum(_unions(n) for n in node)
+    if not isinstance(node, dict):
+        return 0
+    own = sum(
+        1 for p in node.get("properties", {}).values() if "anyOf" in p or isinstance(p.get("type"), list)
+    )
+    return own + sum(_unions(v) for k, v in node.items() if k != "description")
+
+
+def test_schema_stays_within_the_api_union_limit() -> None:
+    """The Messages API rejects a structured-output schema with more than 16 union-typed
+    parameters (400 invalid_request_error); the first live request hit it with 18."""
+    assert _unions(prompt.SCHEMA) <= 16
 
 
 @pytest.mark.parametrize(

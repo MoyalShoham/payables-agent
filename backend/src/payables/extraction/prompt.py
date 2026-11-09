@@ -10,7 +10,7 @@ import hashlib
 import json
 from typing import Any
 
-PROMPT_VERSION = "2026-11-09.1"
+PROMPT_VERSION = "2026-11-09.2"
 
 SYSTEM_PROMPT = """You read supplier invoices for an Israeli accounts-payable team and copy their
 fields into JSON.
@@ -22,7 +22,8 @@ Rules:
   the document, copy the wrong value. Arithmetic is checked later, by code.
 - Amounts are strings with a dot as the decimal separator and no currency sign or thousands
   separator, e.g. "11800.00". Dates are YYYY-MM-DD; Israeli documents write dates day first.
-- Use null for anything not on the document. Never guess a tax ID, invoice number or bank account.
+- Use null for anything not on the document. Inside bank and line_items, use an empty string
+  instead for a part that is not printed. Never guess a tax ID, invoice number or bank account.
 - vendor_tax_id is the supplier's company number (ח.פ.) or dealer number (ע.מ. / עוסק מורשה),
   not the customer's.
 - document_type: TAX_INVOICE for חשבונית מס, TAX_INVOICE_RECEIPT for חשבונית מס קבלה, PROFORMA for
@@ -39,6 +40,9 @@ mention it in notes."""
 _MONEY = {"anyOf": [{"type": "string", "description": "Decimal string, e.g. 1180.00"}, {"type": "null"}]}
 _DATE = {"anyOf": [{"type": "string", "format": "date"}, {"type": "null"}]}
 _TEXT = {"anyOf": [{"type": "string"}, {"type": "null"}]}
+#: Parts of the nested objects are plain strings, "" when not printed (parse() turns "" into None).
+#: The API allows at most 16 union-typed parameters in a schema; nullable nested parts made it 18.
+_PART = {"type": "string", "description": "Empty string if not printed"}
 
 SCHEMA: dict[str, Any] = {
     "type": "object",
@@ -78,8 +82,11 @@ SCHEMA: dict[str, Any] = {
                 "required": ["description", "quantity", "unit_price", "amount"],
                 "properties": {
                     "description": {"type": "string"},
-                    "quantity": _TEXT,
-                    "unit_price": _MONEY,
+                    "quantity": _PART,
+                    "unit_price": {
+                        "type": "string",
+                        "description": "Decimal string, e.g. 1180.00; empty string if not printed",
+                    },
                     "amount": {"type": "string"},
                 },
             },
@@ -96,11 +103,11 @@ SCHEMA: dict[str, Any] = {
                     "additionalProperties": False,
                     "required": ["bank_name", "bank_code", "branch", "account", "iban"],
                     "properties": {
-                        "bank_name": _TEXT,
-                        "bank_code": _TEXT,
-                        "branch": _TEXT,
-                        "account": _TEXT,
-                        "iban": _TEXT,
+                        "bank_name": _PART,
+                        "bank_code": _PART,
+                        "branch": _PART,
+                        "account": _PART,
+                        "iban": _PART,
                     },
                 },
             ]

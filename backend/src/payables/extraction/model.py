@@ -39,13 +39,23 @@ def parse(raw: RawExtraction) -> ExtractedInvoice:
     if not isinstance(data, dict):
         raise ExtractionError("the model's answer is not a JSON object")
     data["vat_rate"] = _rate(data.get("vat_rate"))
+    # Nested parts are "" when not printed (the schema has no nulls there; see prompt.SCHEMA).
     for item in data.get("line_items") or []:
         if isinstance(item, dict):
             item["quantity"] = _decimal(item.get("quantity"))
+            item["unit_price"] = _blank_to_none(item.get("unit_price"))
+    bank = data.get("bank")
+    if isinstance(bank, dict):
+        parts = {k: _blank_to_none(v) for k, v in bank.items()}
+        data["bank"] = parts if any(v is not None for v in parts.values()) else None
     try:
         return ExtractedInvoice.model_validate(data)
     except ValidationError as e:
         raise ExtractionError(f"the model's answer does not validate: {e.error_count()} problem(s)") from e
+
+
+def _blank_to_none(value: object) -> object:
+    return None if isinstance(value, str) and not value.strip() else value
 
 
 def _rate(value: object) -> Decimal | None:

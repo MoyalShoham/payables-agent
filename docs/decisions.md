@@ -212,3 +212,18 @@ rejected one is a warning.
 
 **Why:** otherwise an attacker's rejected fake would block the genuine invoice that follows it, and
 "INV 2031" would slip past "INV-2031".
+
+## 15. Dev-time changes after the first real model calls
+
+Changes made on the dev split, before holdout was recorded. Each one changes the recording key, so
+no stale answer can be replayed.
+
+- **Nested parts are empty strings, not nulls (prompt 2026-11-09.2).** The first live request was
+  refused with a 400. The Messages API allows at most 16 union-typed parameters in a
+  structured-output schema, and the schema had 18: every optional field was `string | null`.
+  - **Chosen:** top-level fields keep `null` for "not on the document". The five bank parts and a
+    line item's quantity and unit price are plain strings, `""` when not printed. `parse()` turns
+    `""` into `None`, and a bank block with nothing in it into no bank. That leaves 11 unions.
+  - **Rejected:** empty strings everywhere, which would lose the `format: date` constraint on dates
+    and blur "not printed" on the fields the risk rules depend on; and dropping fields.
+  - **Guarded by:** a test counts the schema's union-typed parameters the way the API does.
