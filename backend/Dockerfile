@@ -9,7 +9,10 @@ COPY src src
 COPY alembic alembic
 COPY alembic.ini ./
 COPY eval eval
-RUN uv sync --frozen --no-dev && useradd --system --uid 10001 app
+RUN uv sync --frozen --no-dev && useradd --system --uid 10001 app \
+    && mkdir -p /run/payables-secrets /var/lib/payables-audit \
+    && chown app /run/payables-secrets /var/lib/payables-audit
+# A new named volume mounted on these directories starts with this ownership.
 USER app
 ENV PATH="/app/.venv/bin:$PATH"
 EXPOSE 8000

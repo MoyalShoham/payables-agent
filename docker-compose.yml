@@ -1,28 +1,49 @@
 # docker compose up --build    then open http://localhost:3100  (sign in as approver / admin)
 #
-# Without an ANTHROPIC_API_KEY the API replays recorded model answers (and the demo falls back to
-# ground truth for documents without one, labelled as such). Set PAYABLES_EXTRACTION=live and the
-# key in .env to read new invoices with Claude.
+# First start: an init container writes random secrets (session secret, audit key, database
+# passwords) into the `secrets` volume; later starts reuse them. Nothing secret is in this file.
+#
+# The API connects as the database role payables_api and the inbox agent as payables_agent; only
+# the migrations and the demo seed use the bootstrap superuser. Without an ANTHROPIC_API_KEY the
+# API replays recorded model answers, and the demo stands in ground truth for documents without one
+# (labelled as such). Set PAYABLES_EXTRACTION=live and the key in .env to read invoices with Claude.
 x-backend: &backend
   build: ./backend
   env_file:
     - path: .env
       required: false
-  environment: &backend-env
-    PAYABLES_DATABASE_URL: postgresql+psycopg://payables:${POSTGRES_PASSWORD:-payables}@db:5432/payables
-    PAYABLES_EXTRACTION: ${PAYABLES_EXTRACTION:-replay}
-    # The demo's synthetic invoices are dated mid-2025; pin "today" for the date checks.
-    PAYABLES_TODAY: ${PAYABLES_TODAY:-2025-07-01}
+  volumes:
+    - secrets:/run/payables-secrets:ro
+    - audit:/var/lib/payables-audit
+
+x-env: &env
+  PAYABLES_EXTRACTION: ${PAYABLES_EXTRACTION:-replay}
+  PAYABLES_AUDIT_KEY_FILE: /run/payables-secrets/audit_key
+  PAYABLES_AUDIT_ANCHORS: /var/lib/payables-audit/anchors.jsonl
+
+x-bootstrap-db: &bootstrap-db
+  PAYABLES_DATABASE_URL: postgresql+psycopg://payables@db:5432/payables
+  PAYABLES_DATABASE_PASSWORD_FILE: /run/payables-secrets/db_bootstrap_password
 
 services:
+  secrets:
+    build: ./backend
+    command: ["python", "-m", "payables.secretfiles", "init", "/run/payables-secrets"]
+    volumes:
+      - secrets:/run/payables-secrets
+
   db:
     image: postgres:16-alpine
     environment:
       POSTGRES_DB: payables
       POSTGRES_USER: payables
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-payables}
+      POSTGRES_PASSWORD_FILE: /run/payables-secrets/db_bootstrap_password
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - secrets:/run/payables-secrets:ro
+    depends_on:
+      secrets:
+        condition: service_completed_successfully
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U payables -d payables"]
       interval: 3s
@@ -30,7 +51,11 @@ services:
 
   migrate:
     <<: *backend
-    command: ["alembic", "upgrade", "head"]
+    command: ["sh", "-c", "alembic upgrade head && python -m payables.dbsetup"]
+    environment:
+      <<: [*env, *bootstrap-db]
+      PAYABLES_API_DB_PASSWORD_FILE: /run/payables-secrets/db_api_password
+      PAYABLES_AGENT_DB_PASSWORD_FILE: /run/payables-secrets/db_agent_password
     depends_on:
       db:
         condition: service_healthy
@@ -38,12 +63,23 @@ services:
   seed:
     <<: *backend
     command: ["python", "-m", "payables.seed"]
+    environment:
+      <<: [*env, *bootstrap-db]
+      # The demo's synthetic invoices are dated mid-2025; only the seed pins "today".
+      PAYABLES_TODAY: "2025-07-01"
     depends_on:
       migrate:
         condition: service_completed_successfully
 
   api:
     <<: *backend
+    environment:
+      <<: *env
+      PAYABLES_DATABASE_URL: postgresql+psycopg://payables_api@db:5432/payables
+      PAYABLES_DATABASE_PASSWORD_FILE: /run/payables-secrets/db_api_password
+      PAYABLES_SESSION_SECRET_FILE: /run/payables-secrets/session_secret
+    mem_limit: 768m
+    restart: unless-stopped
     depends_on:
       migrate:
         condition: service_completed_successfully
@@ -52,8 +88,16 @@ services:
     <<: *backend
     # Drop invoice files or saved .eml emails into ./inbox; the agent prepares drafts.
     command: ["python", "-m", "payables.ingest", "--inbox", "/inbox", "--watch"]
+    environment:
+      <<: *env
+      PAYABLES_DATABASE_URL: postgresql+psycopg://payables_agent@db:5432/payables
+      PAYABLES_DATABASE_PASSWORD_FILE: /run/payables-secrets/db_agent_password
     volumes:
+      - secrets:/run/payables-secrets:ro
+      - audit:/var/lib/payables-audit
       - ./inbox:/inbox
+    mem_limit: 768m
+    restart: unless-stopped
     depends_on:
       migrate:
         condition: service_completed_successfully
@@ -62,8 +106,11 @@ services:
     build: ./frontend
     depends_on:
       - api
+    restart: unless-stopped
     ports:
       - "127.0.0.1:${PAYABLES_PORT:-3100}:80"
 
 volumes:
   pgdata:
+  secrets:
+  audit:
