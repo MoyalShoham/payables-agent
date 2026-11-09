@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"כנרת הדרכה והשתלמויות\",\"vendor_tax_id\":\"516375722\",\"invoice_number\":\"82925\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-04-29\",\"due_date\":\"2025-06-13\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"שעות ייעוץ\",\"quantity\":\"14\",\"unit_price\":\"740.69\",\"amount\":\"10369.66\"}],\"subtotal\":\"10369.66\",\"vat_rate\":\"18%\",\"vat_amount\":\"1866.54\",\"total\":\"12236.20\",\"bank\":{\"bank_name\":\"דיסקונט\",\"bank_code\":\"11\",\"branch\":\"559\",\"account\":\"647611622\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4064,
+  "output_tokens": 240
+ }
+}

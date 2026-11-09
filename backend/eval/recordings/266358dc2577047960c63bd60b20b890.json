@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"דקל קפה ומשקאות בע\\\"מ\",\"vendor_tax_id\":\"517744496\",\"invoice_number\":\"56575\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2024-10-06\",\"due_date\":\"2024-11-20\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"כיבוד לאירוע\",\"quantity\":\"3\",\"unit_price\":\"2545.01\",\"amount\":\"7635.03\"}],\"subtotal\":\"7635.03\",\"vat_rate\":\"17%\",\"vat_amount\":\"1297.96\",\"total\":\"8932.99\",\"bank\":{\"bank_name\":\"דיסקונט\",\"bank_code\":\"11\",\"branch\":\"176\",\"account\":\"223301421\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5172,
+  "output_tokens": 361
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"גלבוע ציוד משרדי בע\\\"מ\",\"vendor_tax_id\":\"514395631\",\"invoice_number\":\"32693\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-04-02\",\"due_date\":\"2025-04-02\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"נייר צילום A4 (קרטון)\",\"quantity\":\"6\",\"unit_price\":\"138.89\",\"amount\":\"833.34\"}],\"subtotal\":\"833.34\",\"vat_rate\":\"18%\",\"vat_amount\":\"150.00\",\"total\":\"983.34\",\"bank\":{\"bank_name\":\"דיסקונט\",\"bank_code\":\"11\",\"branch\":\"504\",\"account\":\"699035572\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4064,
+  "output_tokens": 245
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"עמק יזרעאל ריהוט משרדי\",\"vendor_tax_id\":\"511293532\",\"invoice_number\":\"93132\",\"document_type\":\"RECEIPT\",\"issue_date\":\"2025-04-10\",\"due_date\":\"2025-06-09\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"טונר למדפסת\",\"quantity\":\"6\",\"unit_price\":\"419.97\",\"amount\":\"2519.82\"},{\"description\":\"כיסא משרדי ארגונומי\",\"quantity\":\"1\",\"unit_price\":\"1199.20\",\"amount\":\"1199.20\"},{\"description\":\"קלסרים\",\"quantity\":\"9\",\"unit_price\":\"9.24\",\"amount\":\"83.16\"}],\"subtotal\":\"3802.18\",\"vat_rate\":\"18%\",\"vat_amount\":\"684.39\",\"total\":\"4486.57\",\"bank\":{\"bank_name\":\"הפועלים\",\"bank_code\":\"12\",\"branch\":\"317\",\"account\":\"314670548\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5172,
+  "output_tokens": 321
+ }
+}

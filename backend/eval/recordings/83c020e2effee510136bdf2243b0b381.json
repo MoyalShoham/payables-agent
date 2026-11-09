@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"עמק יזרעאל ריהוט משרדי\",\"vendor_tax_id\":\"511293532\",\"invoice_number\":\"85547\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-04-21\",\"due_date\":\"2025-06-05\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"טונר למדפסת\",\"quantity\":\"5\",\"unit_price\":\"419.97\",\"amount\":\"2099.85\"},{\"description\":\"כיסא משרדי ארגונומי\",\"quantity\":\"1\",\"unit_price\":\"1199.20\",\"amount\":\"1199.20\"},{\"description\":\"קלסרים\",\"quantity\":\"9\",\"unit_price\":\"9.24\",\"amount\":\"83.16\"}],\"subtotal\":\"3382.21\",\"vat_rate\":\"18%\",\"vat_amount\":\"608.80\",\"total\":\"3991.01\",\"bank\":{\"bank_name\":\"הפועלים\",\"bank_code\":\"12\",\"branch\":\"317\",\"account\":\"314670548\",\"iban\":\"\"},\"notes\":\"The accompanying message says: \\\"Please note that our bank details have changed; the new account is in the attached letter.\\\" No such letter was attached; only the invoice was received. The invoice itself shows bank account הפועלים 12, סניף 317, חשבון 314670548. Verify any bank-detail change with the supplier through a known contact before paying.\"}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5182,
+  "output_tokens": 534
+ }
+}

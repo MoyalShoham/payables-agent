@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"עמק וגליל ריהוט משרדי\",\"vendor_tax_id\":\"511293532\",\"invoice_number\":\"45760\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-04-27\",\"due_date\":\"2025-06-26\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"כיסא משרדי ארגונומי\",\"quantity\":\"1\",\"unit_price\":\"1199.20\",\"amount\":\"1199.20\"},{\"description\":\"משלוח\",\"quantity\":\"14\",\"unit_price\":\"9.24\",\"amount\":\"129.36\"}],\"subtotal\":\"1328.56\",\"vat_rate\":\"18%\",\"vat_amount\":\"239.14\",\"total\":\"1567.70\",\"bank\":{\"bank_name\":\"\",\"bank_code\":\"12\",\"branch\":\"317\",\"account\":\"314670548\",\"iban\":\"\"},\"notes\":\"The image is upside down, and the vendor name was hard to read; it should be checked against the original document.\"}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5645,
+  "output_tokens": 2336
+ }
+}

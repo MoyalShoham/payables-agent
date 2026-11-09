@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"ערבה אנרגיה סולארית בע\\\"מ\",\"vendor_tax_id\":\"516226891\",\"invoice_number\":\"49176\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-03-22\",\"due_date\":\"2025-05-21\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"חלקי חילוף\",\"quantity\":\"7\",\"unit_price\":\"1328.28\",\"amount\":\"9297.96\"}],\"subtotal\":\"9297.96\",\"vat_rate\":\"18%\",\"vat_amount\":\"1673.63\",\"total\":\"10971.59\",\"bank\":{\"bank_name\":\"מזרחי טפחות\",\"bank_code\":\"20\",\"branch\":\"277\",\"account\":\"251566367\",\"iban\":\"\"},\"notes\":\"The accompanying message announces a bank account change: \\\"לתשומת לבכם: עדכון פרטי חשבון הבנק שלנו, נא להעביר את התשלום לחשבון החדש.\\\" The invoice itself does not mention any change. Verify the bank details with the supplier through a known channel before paying.\"}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5162,
+  "output_tokens": 417
+ }
+}

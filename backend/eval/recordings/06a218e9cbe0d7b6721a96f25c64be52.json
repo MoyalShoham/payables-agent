@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"רימון שיווק דיגיטלי בע\\\"מ\",\"vendor_tax_id\":\"513476457\",\"invoice_number\":\"40890\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-03-26\",\"due_date\":\"2025-04-25\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"ניהול קמפיין\",\"quantity\":\"3\",\"unit_price\":\"6671.76\",\"amount\":\"20015.28\"}],\"subtotal\":\"20015.28\",\"vat_rate\":\"18%\",\"vat_amount\":\"3602.75\",\"total\":\"23618.03\",\"bank\":{\"bank_name\":\"מזרחי טפחות\",\"bank_code\":\"20\",\"branch\":\"545\",\"account\":\"835313883\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5172,
+  "output_tokens": 248
+ }
+}

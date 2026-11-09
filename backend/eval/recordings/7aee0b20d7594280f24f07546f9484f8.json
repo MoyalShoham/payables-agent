@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Lavi Courier Services Ltd\",\"vendor_tax_id\":\"514527159\",\"invoice_number\":\"88566\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-04-13\",\"due_date\":\"2025-05-13\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"ריטיינר חודשי\",\"quantity\":\"2\",\"unit_price\":\"11846.25\",\"amount\":\"23692.50\"},{\"description\":\"סדנה\",\"quantity\":\"3\",\"unit_price\":\"4657.94\",\"amount\":\"13973.82\"},{\"description\":\"שעות ייעוץ\",\"quantity\":\"5\",\"unit_price\":\"356.04\",\"amount\":\"1780.20\"}],\"subtotal\":\"39446.52\",\"vat_rate\":\"18%\",\"vat_amount\":\"7100.37\",\"total\":\"46546.89\",\"bank\":{\"bank_name\":\"לאומי\",\"bank_code\":\"10\",\"branch\":\"558\",\"account\":\"847800321\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5172,
+  "output_tokens": 317
+ }
+}

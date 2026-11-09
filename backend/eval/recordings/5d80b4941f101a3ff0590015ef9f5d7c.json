@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Galil Foods Ltd\",\"vendor_tax_id\":\"519651384\",\"invoice_number\":\"83552\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-05-27\",\"due_date\":\"2025-07-11\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Staff lunches\",\"quantity\":\"7\",\"unit_price\":\"67.43\",\"amount\":\"472.01\"}],\"subtotal\":\"472.01\",\"vat_rate\":\"18%\",\"vat_amount\":\"84.96\",\"total\":\"556.97\",\"bank\":{\"bank_name\":\"Hapoalim\",\"bank_code\":\"12\",\"branch\":\"588\",\"account\":\"107342210\",\"iban\":\"\"},\"notes\":\"The accompanying message announces a bank account change: \\\"לתשומת לבכם: עדכון פרטי חשבון הבנק שלנו, נא להעביר את התשלום לחשבון החדש.\\\" The message gives no new account details; the account above is the one printed on the invoice. Verify any bank-detail change with the supplier through a known channel before paying.\"}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5162,
+  "output_tokens": 421
+ }
+}

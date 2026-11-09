@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"תבור מחשוב ותקשורת בע\\\"מ\",\"vendor_tax_id\":\"517080644\",\"invoice_number\":\"75199\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-05-15\",\"due_date\":\"2025-06-14\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"תמיכה טכנית (חודשי)\",\"quantity\":\"11\",\"unit_price\":\"3285.64\",\"amount\":\"36142.04\"}],\"subtotal\":\"36864.04\",\"vat_rate\":\"18%\",\"vat_amount\":\"6635.53\",\"total\":\"43499.57\",\"bank\":{\"bank_name\":\"מזרחי טפחות\",\"bank_code\":\"20\",\"branch\":\"170\",\"account\":\"902008543\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4078,
+  "output_tokens": 418
+ }
+}

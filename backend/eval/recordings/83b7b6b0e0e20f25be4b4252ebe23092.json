@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Modiin Security Ltd\",\"vendor_tax_id\":\"511215584\",\"invoice_number\":\"58100\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2024-10-19\",\"due_date\":\"2024-11-18\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Spare parts\",\"quantity\":\"1\",\"unit_price\":\"1390.54\",\"amount\":\"1390.54\"},{\"description\":\"Technician visit\",\"quantity\":\"1\",\"unit_price\":\"302.21\",\"amount\":\"302.21\"},{\"description\":\"Service contract (monthly)\",\"quantity\":\"11\",\"unit_price\":\"1689.44\",\"amount\":\"18583.84\"}],\"subtotal\":\"20276.59\",\"vat_rate\":\"17%\",\"vat_amount\":\"3447.02\",\"total\":\"23723.61\",\"bank\":{\"bank_name\":\"First International\",\"bank_code\":\"31\",\"branch\":\"146\",\"account\":\"733023356\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5172,
+  "output_tokens": 307
+ }
+}

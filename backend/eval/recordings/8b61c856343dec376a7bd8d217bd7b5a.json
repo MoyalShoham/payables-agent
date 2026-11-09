@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"אלון רואי חשבון ושות'\",\"vendor_tax_id\":\"519810469\",\"invoice_number\":\"13328\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-03-08\",\"due_date\":\"2025-04-07\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"ריטיינר חודשי\",\"quantity\":\"11\",\"unit_price\":\"5552.49\",\"amount\":\"61077.39\"},{\"description\":\"שעות ייעוץ\",\"quantity\":\"11\",\"unit_price\":\"357.68\",\"amount\":\"3934.48\"}],\"subtotal\":\"65011.87\",\"vat_rate\":\"18%\",\"vat_amount\":\"11702.14\",\"total\":\"76714.01\",\"bank\":{\"bank_name\":\"הפועלים\",\"bank_code\":\"12\",\"branch\":\"101\",\"account\":\"348580313\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5172,
+  "output_tokens": 281
+ }
+}

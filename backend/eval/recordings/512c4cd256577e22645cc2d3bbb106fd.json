@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"חרמון דפוס והפקות בע\\\"מ\",\"vendor_tax_id\":\"519452346\",\"invoice_number\":\"90778\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-03-12\",\"due_date\":\"2025-04-26\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"הדפסת קטלוגים\",\"quantity\":\"14\",\"unit_price\":\"11.28\",\"amount\":\"157.92\"},{\"description\":\"שלט חוצות\",\"quantity\":\"1\",\"unit_price\":\"1051.93\",\"amount\":\"1051.93\"},{\"description\":\"כרטיסי ביקור\",\"quantity\":\"2\",\"unit_price\":\"219.45\",\"amount\":\"438.90\"}],\"subtotal\":\"1648.75\",\"vat_rate\":\"18%\",\"vat_amount\":\"296.78\",\"total\":\"1945.53\",\"bank\":{\"bank_name\":\"דיסקונט\",\"bank_code\":\"11\",\"branch\":\"937\",\"account\":\"430331565\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4118,
+  "output_tokens": 325
+ }
+}

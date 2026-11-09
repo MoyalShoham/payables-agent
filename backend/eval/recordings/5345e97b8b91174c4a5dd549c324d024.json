@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Tavor Systems Ltd\",\"vendor_tax_id\":\"511612152\",\"invoice_number\":\"55452\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2024-11-28\",\"due_date\":\"2025-01-12\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Annual software licence\",\"quantity\":\"5\",\"unit_price\":\"2992.10\",\"amount\":\"14960.50\"}],\"subtotal\":\"14960.50\",\"vat_rate\":\"17%\",\"vat_amount\":\"2543.28\",\"total\":\"17503.78\",\"bank\":{\"bank_name\":\"Leumi\",\"bank_code\":\"10\",\"branch\":\"112\",\"account\":\"657916750\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4009,
+  "output_tokens": 231
+ }
+}

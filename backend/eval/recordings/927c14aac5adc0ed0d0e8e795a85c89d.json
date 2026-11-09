@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"חרמון דפוס והפקות בע\\\"מ\",\"vendor_tax_id\":\"519452346\",\"invoice_number\":\"88517\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-04-04\",\"due_date\":\"2025-06-03\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"כרטיסי ביקור\",\"quantity\":\"2\",\"unit_price\":\"219.45\",\"amount\":\"438.90\"}],\"subtotal\":\"438.90\",\"vat_rate\":\"18%\",\"vat_amount\":\"79.00\",\"total\":\"517.90\",\"bank\":{\"bank_name\":\"דיסקונט\",\"bank_code\":\"11\",\"branch\":\"554\",\"account\":\"324616338\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4058,
+  "output_tokens": 239
+ }
+}

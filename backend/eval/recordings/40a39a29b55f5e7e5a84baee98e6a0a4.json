@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Negev Solar Ltd\",\"vendor_tax_id\":\"518490925\",\"invoice_number\":\"29409\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2024-12-20\",\"due_date\":\"2024-12-20\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Spare parts\",\"quantity\":\"2\",\"unit_price\":\"649.62\",\"amount\":\"1299.24\"}],\"subtotal\":\"1299.24\",\"vat_rate\":\"17%\",\"vat_amount\":\"220.87\",\"total\":\"1520.11\",\"bank\":{\"bank_name\":\"Mizrahi-Tefahot\",\"bank_code\":\"20\",\"branch\":\"176\",\"account\":\"430746883\",\"iban\":\"\"},\"notes\":\"The invoice states: \\\"Please note our new bank account details below.\\\" (no bank details appear below this line; the printed account is above it).\"}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4023,
+  "output_tokens": 276
+ }
+}

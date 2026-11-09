@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Ofek Cyber Ltd\",\"vendor_tax_id\":\"519251599\",\"invoice_number\":\"61451\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-05-23\",\"due_date\":\"2025-05-23\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Development hours\",\"quantity\":\"44\",\"unit_price\":\"309.30\",\"amount\":\"13609.20\"},{\"description\":\"Annual software licence\",\"quantity\":\"16\",\"unit_price\":\"1803.58\",\"amount\":\"28857.28\"}],\"subtotal\":\"42466.48\",\"vat_rate\":\"18%\",\"vat_amount\":\"7643.97\",\"total\":\"50110.45\",\"bank\":{\"bank_name\":\"Leumi\",\"bank_code\":\"10\",\"branch\":\"743\",\"account\":\"350831559\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5063,
+  "output_tokens": 269
+ }
+}

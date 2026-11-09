@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Shefa Logistics Ltd\",\"vendor_tax_id\":\"513665075\",\"invoice_number\":\"28966\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-04-27\",\"due_date\":\"2025-05-27\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Sea freight - container\",\"quantity\":\"1\",\"unit_price\":\"6403.50\",\"amount\":\"6403.50\"},{\"description\":\"Local delivery\",\"quantity\":\"1\",\"unit_price\":\"440.75\",\"amount\":\"440.75\"},{\"description\":\"Warehousing (monthly)\",\"quantity\":\"1\",\"unit_price\":\"3315.32\",\"amount\":\"3315.32\"}],\"subtotal\":\"10159.57\",\"vat_rate\":\"18%\",\"vat_amount\":\"1828.72\",\"total\":\"11988.29\",\"bank\":{\"bank_name\":\"First International\",\"bank_code\":\"31\",\"branch\":\"591\",\"account\":\"223785482\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4062,
+  "output_tokens": 312
+ }
+}

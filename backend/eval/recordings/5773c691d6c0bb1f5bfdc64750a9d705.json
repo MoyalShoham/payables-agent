@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Ofek Cyber Ltd\",\"vendor_tax_id\":\"519251599\",\"invoice_number\":\"77392\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-04-21\",\"due_date\":\"2025-05-21\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"שעות פיתוח\",\"quantity\":\"14\",\"unit_price\":\"309.30\",\"amount\":\"4330.20\"},{\"description\":\"רישיון תוכנה שנתי\",\"quantity\":\"4\",\"unit_price\":\"1803.58\",\"amount\":\"7214.32\"}],\"subtotal\":\"11544.52\",\"vat_rate\":\"18%\",\"vat_amount\":\"2078.01\",\"total\":\"13622.53\",\"bank\":{\"bank_name\":\"לאומי\",\"bank_code\":\"10\",\"branch\":\"743\",\"account\":\"350831559\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4100,
+  "output_tokens": 280
+ }
+}

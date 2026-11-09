@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"צוהר השכרות ציוד בע\\\"מ\",\"vendor_tax_id\":\"514838978\",\"invoice_number\":\"68251\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-05-31\",\"due_date\":\"2025-06-30\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"חוזה שירות (חודשי)\",\"quantity\":\"1\",\"unit_price\":\"801.83\",\"amount\":\"801.83\"}],\"subtotal\":\"801.83\",\"vat_rate\":\"18%\",\"vat_amount\":\"144.33\",\"total\":\"946.16\",\"bank\":{\"bank_name\":\"הבינלאומי\",\"bank_code\":\"31\",\"branch\":\"876\",\"account\":\"578499102\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5172,
+  "output_tokens": 243
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"ערבה אנרגיה סולארית בע\\\"מ\",\"vendor_tax_id\":\"516226891\",\"invoice_number\":\"82808\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-04-21\",\"due_date\":\"2025-04-21\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"חלקי חילוף\",\"quantity\":\"5\",\"unit_price\":\"1328.28\",\"amount\":\"6641.40\"}],\"subtotal\":\"6641.40\",\"vat_rate\":\"18%\",\"vat_amount\":\"1195.45\",\"total\":\"7836.85\",\"bank\":{\"bank_name\":\"מזרחי טפחות\",\"bank_code\":\"20\",\"branch\":\"277\",\"account\":\"251566367\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4071,
+  "output_tokens": 247
+ }
+}

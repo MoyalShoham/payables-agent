@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Zohar Event Rentals Ltd\",\"vendor_tax_id\":\"516772274\",\"invoice_number\":\"46336\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-03-26\",\"due_date\":\"2025-04-25\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"חוזה שירות (חודשי)\",\"quantity\":\"4\",\"unit_price\":\"1717.33\",\"amount\":\"6869.32\"}],\"subtotal\":\"6869.32\",\"vat_rate\":\"18%\",\"vat_amount\":\"1236.48\",\"total\":\"8105.80\",\"bank\":{\"bank_name\":\"הבינלאומי\",\"bank_code\":\"31\",\"branch\":\"968\",\"account\":\"1491569\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 5172,
+  "output_tokens": 324
+ }
+}

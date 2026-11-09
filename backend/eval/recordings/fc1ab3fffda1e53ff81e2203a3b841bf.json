@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Gilboa Cleaning Services Ltd\",\"vendor_tax_id\":\"513804140\",\"invoice_number\":\"82404\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-06-03\",\"due_date\":\"2025-07-03\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Window cleaning\",\"quantity\":\"1\",\"unit_price\":\"981.20\",\"amount\":\"981.20\"},{\"description\":\"Office cleaning (monthly)\",\"quantity\":\"1\",\"unit_price\":\"3274.35\",\"amount\":\"3274.35\"}],\"subtotal\":\"4255.55\",\"vat_rate\":\"18%\",\"vat_amount\":\"766.00\",\"total\":\"5021.55\",\"bank\":{\"bank_name\":\"Mizrahi-Tefahot\",\"bank_code\":\"20\",\"branch\":\"803\",\"account\":\"272346332\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4048,
+  "output_tokens": 286
+ }
+}

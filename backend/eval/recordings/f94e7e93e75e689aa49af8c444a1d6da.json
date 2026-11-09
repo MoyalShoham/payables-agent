@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Kinneret Media Ltd\",\"vendor_tax_id\":\"514745322\",\"invoice_number\":\"52683\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-03-25\",\"due_date\":\"2025-04-24\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Paid promotion\",\"quantity\":\"10\",\"unit_price\":\"5097.11\",\"amount\":\"50971.10\"},{\"description\":\"Campaign management\",\"quantity\":\"1\",\"unit_price\":\"6746.45\",\"amount\":\"6746.45\"}],\"subtotal\":\"57717.55\",\"vat_rate\":\"18%\",\"vat_amount\":\"10389.16\",\"total\":\"68106.71\",\"bank\":{\"bank_name\":\"Mizrahi-Tefahot\",\"bank_code\":\"20\",\"branch\":\"526\",\"account\":\"19656248\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4043,
+  "output_tokens": 278
+ }
+}

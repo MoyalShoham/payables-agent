@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Sharon Translations Ltd\",\"vendor_tax_id\":\"511869521\",\"invoice_number\":\"65056\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-08-25\",\"due_date\":\"2025-09-24\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Workshop\",\"quantity\":\"2\",\"unit_price\":\"2662.84\",\"amount\":\"5325.68\"}],\"subtotal\":\"5325.68\",\"vat_rate\":\"18%\",\"vat_amount\":\"958.62\",\"total\":\"6284.30\",\"bank\":{\"bank_name\":\"Mizrahi-Tefahot\",\"bank_code\":\"20\",\"branch\":\"317\",\"account\":\"961928163\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4013,
+  "output_tokens": 236
+ }
+}

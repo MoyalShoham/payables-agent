@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"דקל קפה ומשקאות בע\\\"מם\",\"vendor_tax_id\":\"517090981\",\"invoice_number\":\"21862\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-06-19\",\"due_date\":\"2025-07-19\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"ארוחות צהריים לעובדים\",\"quantity\":\"1\",\"unit_price\":\"54.60\",\"amount\":\"54.60\"},{\"description\":\"כיבוד לאירוע\",\"quantity\":\"10\",\"unit_price\":\"1478.04\",\"amount\":\"14780.40\"}],\"subtotal\":\"14835.00\",\"vat_rate\":\"18%\",\"vat_amount\":\"2670.30\",\"total\":\"17505.30\",\"bank\":{\"bank_name\":\"לאומי\",\"bank_code\":\"10\",\"branch\":\"821\",\"account\":\"494231485\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4106,
+  "output_tokens": 531
+ }
+}

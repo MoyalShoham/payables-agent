@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"Hermon Print Ltd\",\"vendor_tax_id\":\"515596468\",\"invoice_number\":\"53854\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2024-10-07\",\"due_date\":\"2024-11-06\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"Business cards\",\"quantity\":\"5\",\"unit_price\":\"163.20\",\"amount\":\"816.00\"},{\"description\":\"Outdoor sign\",\"quantity\":\"1\",\"unit_price\":\"3302.75\",\"amount\":\"3302.75\"},{\"description\":\"Catalogue printing\",\"quantity\":\"2\",\"unit_price\":\"13.69\",\"amount\":\"27.38\"}],\"subtotal\":\"4146.13\",\"vat_rate\":\"17%\",\"vat_amount\":\"704.84\",\"total\":\"4850.97\",\"bank\":{\"bank_name\":\"Discount\",\"bank_code\":\"11\",\"branch\":\"123\",\"account\":\"3866788\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4051,
+  "output_tokens": 304
+ }
+}

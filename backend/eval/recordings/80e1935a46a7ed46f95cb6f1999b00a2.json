@@ -1,0 +1,9 @@
+{
+ "text": "{\"vendor_name\":\"כרמל הובלות בע\\\"מ\",\"vendor_tax_id\":\"514904879\",\"invoice_number\":\"27989\",\"document_type\":\"TAX_INVOICE\",\"issue_date\":\"2025-03-24\",\"due_date\":\"2025-05-08\",\"currency\":\"ILS\",\"line_items\":[{\"description\":\"שירותי מחסן (חודשי)\",\"quantity\":\"4\",\"unit_price\":\"1512.48\",\"amount\":\"6049.92\"}],\"subtotal\":\"6049.92\",\"vat_rate\":\"18%\",\"vat_amount\":\"1028.49\",\"total\":\"7078.41\",\"bank\":{\"bank_name\":\"לאומי\",\"bank_code\":\"10\",\"branch\":\"660\",\"account\":\"764723112\",\"iban\":\"\"},\"notes\":null}",
+ "model": "claude-opus-5-5",
+ "stop_reason": "end_turn",
+ "usage": {
+  "input_tokens": 4066,
+  "output_tokens": 242
+ }
+}
